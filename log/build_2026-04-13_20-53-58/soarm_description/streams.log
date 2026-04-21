@@ -1,0 +1,66 @@
+[0.021s] Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_description -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_description
+[0.092s] -- The C compiler identification is GNU 11.4.0
+[0.172s] -- The CXX compiler identification is GNU 11.4.0
+[0.180s] -- Detecting C compiler ABI info
+[0.262s] -- Detecting C compiler ABI info - done
+[0.277s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.277s] -- Detecting C compile features
+[0.278s] -- Detecting C compile features - done
+[0.282s] -- Detecting CXX compiler ABI info
+[0.412s] -- Detecting CXX compiler ABI info - done
+[0.421s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.422s] -- Detecting CXX compile features
+[0.422s] -- Detecting CXX compile features - done
+[0.426s] -- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.597s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.699s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.796s] -- Added test 'flake8' to check Python code syntax and style conventions
+[0.798s] -- Added test 'lint_cmake' to check CMake code style
+[0.799s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[0.802s] -- Added test 'xmllint' to check XML markup files
+[0.804s] -- Configuring done
+[0.808s] -- Generating done
+[0.811s] -- Build files have been written to: /home/yundali/Arm_Project_WS/build/soarm_description
+[0.818s] Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_description -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_description
+[0.820s] Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_description -- -j8 -l8
+[0.864s] Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_description -- -j8 -l8
+[0.866s] Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_description
+[0.875s] -- Install configuration: ""
+[0.875s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes
+[0.875s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Wrist_Roll_Follower_SO101.stl
+[0.876s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Rotation_Pitch_SO101.stl
+[0.877s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Base_SO101.stl
+[0.878s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/WaveShare_Mounting_Plate_SO101.stl
+[0.878s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Wrist_Roll_SO101.stl
+[0.878s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Seeedstudio_Mounting_Plate_SO101.stl
+[0.879s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Motor_holder_SO101_Base.stl
+[0.879s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Upper_arm_SO101.stl
+[0.880s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Wrist_Roll_Pitch_SO101.stl
+[0.881s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/SO101 Assembly.stl
+[0.922s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Under_arm_SO101.stl
+[0.923s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Base_motor_holder_SO101.stl
+[0.924s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Moving_Jaw_SO101.stl
+[0.924s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Handle_SO101.stl
+[0.925s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Motor_holder_SO101_Wrist.stl
+[0.926s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/meshes/Trigger_SO101.stl
+[0.927s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/urdf
+[0.927s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/urdf/soarm.urdf.xacro
+[0.928s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/launch
+[0.928s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/launch/display.launch.py
+[0.928s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/rviz
+[0.928s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/ament_index/resource_index/package_run_dependencies/soarm_description
+[0.928s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/ament_index/resource_index/parent_prefix_path/soarm_description
+[0.928s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/environment/ament_prefix_path.sh
+[0.929s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/environment/ament_prefix_path.dsv
+[0.929s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/environment/path.sh
+[0.929s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/environment/path.dsv
+[0.929s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/local_setup.bash
+[0.930s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/local_setup.sh
+[0.930s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/local_setup.zsh
+[0.930s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/local_setup.dsv
+[0.930s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.dsv
+[0.931s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/ament_index/resource_index/packages/soarm_description
+[0.931s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/cmake/soarm_descriptionConfig.cmake
+[0.931s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/cmake/soarm_descriptionConfig-version.cmake
+[0.931s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.xml
+[0.934s] Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_description

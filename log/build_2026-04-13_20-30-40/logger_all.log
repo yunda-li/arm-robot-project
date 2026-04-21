@@ -1,0 +1,269 @@
+[0.118s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.118s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x730b9115a0b0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x730b9125b220>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x730b9125b220>>, mixin_verb=('build',))
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.310s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/yundali/Arm_Project_WS'
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.310s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.322s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.323s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_controller) by extension 'ignore'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_controller) by extension 'ignore_ament_install'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_controller) by extensions ['colcon_pkg']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_controller) by extension 'colcon_pkg'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_controller) by extensions ['colcon_meta']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_controller) by extension 'colcon_meta'
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_controller) by extensions ['ros']
+[0.324s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_controller) by extension 'ros'
+[0.327s] DEBUG:colcon.colcon_core.package_identification:Package 'src/soarm_controller' with type 'ros.ament_cmake' and name 'soarm_controller'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_description) by extensions ['ignore', 'ignore_ament_install']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_description) by extension 'ignore'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_description) by extension 'ignore_ament_install'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_description) by extensions ['colcon_pkg']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_description) by extension 'colcon_pkg'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_description) by extensions ['colcon_meta']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_description) by extension 'colcon_meta'
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_description) by extensions ['ros']
+[0.328s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_description) by extension 'ros'
+[0.329s] DEBUG:colcon.colcon_core.package_identification:Package 'src/soarm_description' with type 'ros.ament_cmake' and name 'soarm_description'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_scripts) by extension 'ignore'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_scripts) by extension 'ignore_ament_install'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_scripts) by extensions ['colcon_pkg']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_scripts) by extension 'colcon_pkg'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_scripts) by extensions ['colcon_meta']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_scripts) by extension 'colcon_meta'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_scripts) by extensions ['ros']
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(src/soarm_scripts) by extension 'ros'
+[0.330s] DEBUG:colcon.colcon_core.package_identification:Package 'src/soarm_scripts' with type 'ros.ament_cmake' and name 'soarm_scripts'
+[0.330s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.330s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.330s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.330s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.330s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.358s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.358s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.360s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 3 installed packages in /home/yundali/Arm_Project_WS/install
+[0.362s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 400 installed packages in /opt/ros/humble
+[0.364s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.415s] Level 5:colcon.colcon_core.verb:set package 'soarm_controller' build argument 'cmake_args' from command line to 'None'
+[0.415s] Level 5:colcon.colcon_core.verb:set package 'soarm_controller' build argument 'cmake_target' from command line to 'None'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.416s] DEBUG:colcon.colcon_core.verb:Building package 'soarm_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yundali/Arm_Project_WS/build/soarm_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yundali/Arm_Project_WS/install/soarm_controller', 'merge_install': False, 'path': '/home/yundali/Arm_Project_WS/src/soarm_controller', 'symlink_install': False, 'test_result_base': None}
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_description' build argument 'cmake_args' from command line to 'None'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_description' build argument 'cmake_target' from command line to 'None'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.416s] Level 5:colcon.colcon_core.verb:set package 'soarm_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.416s] DEBUG:colcon.colcon_core.verb:Building package 'soarm_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yundali/Arm_Project_WS/build/soarm_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yundali/Arm_Project_WS/install/soarm_description', 'merge_install': False, 'path': '/home/yundali/Arm_Project_WS/src/soarm_description', 'symlink_install': False, 'test_result_base': None}
+[0.417s] Level 5:colcon.colcon_core.verb:set package 'soarm_scripts' build argument 'cmake_args' from command line to 'None'
+[0.417s] Level 5:colcon.colcon_core.verb:set package 'soarm_scripts' build argument 'cmake_target' from command line to 'None'
+[0.417s] Level 5:colcon.colcon_core.verb:set package 'soarm_scripts' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.417s] Level 5:colcon.colcon_core.verb:set package 'soarm_scripts' build argument 'cmake_clean_cache' from command line to 'False'
+[0.417s] Level 5:colcon.colcon_core.verb:set package 'soarm_scripts' build argument 'cmake_clean_first' from command line to 'False'
+[0.417s] Level 5:colcon.colcon_core.verb:set package 'soarm_scripts' build argument 'cmake_force_configure' from command line to 'False'
+[0.417s] Level 5:colcon.colcon_core.verb:set package 'soarm_scripts' build argument 'ament_cmake_args' from command line to 'None'
+[0.417s] Level 5:colcon.colcon_core.verb:set package 'soarm_scripts' build argument 'catkin_cmake_args' from command line to 'None'
+[0.417s] Level 5:colcon.colcon_core.verb:set package 'soarm_scripts' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.417s] DEBUG:colcon.colcon_core.verb:Building package 'soarm_scripts' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/yundali/Arm_Project_WS/build/soarm_scripts', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/yundali/Arm_Project_WS/install/soarm_scripts', 'merge_install': False, 'path': '/home/yundali/Arm_Project_WS/src/soarm_scripts', 'symlink_install': False, 'test_result_base': None}
+[0.417s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.418s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.419s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yundali/Arm_Project_WS/src/soarm_controller' with build type 'ament_cmake'
+[0.419s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yundali/Arm_Project_WS/src/soarm_controller'
+[0.421s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.422s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.422s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.426s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yundali/Arm_Project_WS/src/soarm_description' with build type 'ament_cmake'
+[0.426s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yundali/Arm_Project_WS/src/soarm_description'
+[0.427s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.427s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.431s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/yundali/Arm_Project_WS/src/soarm_scripts' with build type 'ament_cmake'
+[0.431s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/yundali/Arm_Project_WS/src/soarm_scripts'
+[0.432s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.432s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.443s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_controller -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_controller
+[0.448s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_description -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_description
+[0.454s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_scripts': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_scripts -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_scripts
+[0.734s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_controller -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_controller
+[0.736s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_controller -- -j8 -l8
+[0.739s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_description -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_description
+[0.742s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_description -- -j8 -l8
+[0.743s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_scripts' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_scripts -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_scripts
+[0.745s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_scripts': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_scripts -- -j8 -l8
+[0.794s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_controller -- -j8 -l8
+[0.809s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_controller
+[0.811s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_scripts' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_scripts -- -j8 -l8
+[0.813s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_scripts': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_scripts
+[0.814s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_description -- -j8 -l8
+[0.816s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_description
+[0.840s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(soarm_controller)
+[0.840s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_controller
+[0.846s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller' for CMake module files
+[0.847s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller' for CMake config files
+[0.848s] Level 1:colcon.colcon_core.shell:create_environment_hook('soarm_controller', 'cmake_prefix_path')
+[0.848s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/hook/cmake_prefix_path.ps1'
+[0.850s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/hook/cmake_prefix_path.dsv'
+[0.851s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/hook/cmake_prefix_path.sh'
+[0.853s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller/bin'
+[0.853s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller/lib/pkgconfig/soarm_controller.pc'
+[0.853s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller/lib/python3.10/site-packages'
+[0.853s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller/bin'
+[0.854s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.ps1'
+[0.854s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.dsv'
+[0.855s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.sh'
+[0.856s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.bash'
+[0.857s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.zsh'
+[0.858s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yundali/Arm_Project_WS/install/soarm_controller/share/colcon-core/packages/soarm_controller)
+[0.858s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(soarm_controller)
+[0.859s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller' for CMake module files
+[0.859s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller' for CMake config files
+[0.860s] Level 1:colcon.colcon_core.shell:create_environment_hook('soarm_controller', 'cmake_prefix_path')
+[0.860s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/hook/cmake_prefix_path.ps1'
+[0.861s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/hook/cmake_prefix_path.dsv'
+[0.861s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/hook/cmake_prefix_path.sh'
+[0.862s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller/bin'
+[0.862s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller/lib/pkgconfig/soarm_controller.pc'
+[0.862s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller/lib/python3.10/site-packages'
+[0.863s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_controller/bin'
+[0.863s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.ps1'
+[0.864s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.dsv'
+[0.865s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.sh'
+[0.866s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.bash'
+[0.867s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.zsh'
+[0.868s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yundali/Arm_Project_WS/install/soarm_controller/share/colcon-core/packages/soarm_controller)
+[0.870s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(soarm_description)
+[0.870s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description' for CMake module files
+[0.871s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_description
+[0.871s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description' for CMake config files
+[0.872s] Level 1:colcon.colcon_core.shell:create_environment_hook('soarm_description', 'cmake_prefix_path')
+[0.873s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/hook/cmake_prefix_path.ps1'
+[0.873s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/hook/cmake_prefix_path.dsv'
+[0.874s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/hook/cmake_prefix_path.sh'
+[0.875s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description/bin'
+[0.875s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description/lib/pkgconfig/soarm_description.pc'
+[0.875s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description/lib/python3.10/site-packages'
+[0.875s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description/bin'
+[0.876s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.ps1'
+[0.876s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.dsv'
+[0.877s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.sh'
+[0.877s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.bash'
+[0.878s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.zsh'
+[0.878s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yundali/Arm_Project_WS/install/soarm_description/share/colcon-core/packages/soarm_description)
+[0.879s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(soarm_description)
+[0.880s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description' for CMake module files
+[0.880s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description' for CMake config files
+[0.881s] Level 1:colcon.colcon_core.shell:create_environment_hook('soarm_description', 'cmake_prefix_path')
+[0.881s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/hook/cmake_prefix_path.ps1'
+[0.882s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/hook/cmake_prefix_path.dsv'
+[0.882s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/hook/cmake_prefix_path.sh'
+[0.883s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description/bin'
+[0.883s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description/lib/pkgconfig/soarm_description.pc'
+[0.883s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description/lib/python3.10/site-packages'
+[0.884s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_description/bin'
+[0.885s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.ps1'
+[0.885s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.dsv'
+[0.886s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.sh'
+[0.887s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.bash'
+[0.887s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_description/share/soarm_description/package.zsh'
+[0.888s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yundali/Arm_Project_WS/install/soarm_description/share/colcon-core/packages/soarm_description)
+[0.888s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(soarm_scripts)
+[0.889s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts' for CMake module files
+[0.890s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_scripts' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_scripts
+[0.890s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts' for CMake config files
+[0.891s] Level 1:colcon.colcon_core.shell:create_environment_hook('soarm_scripts', 'cmake_prefix_path')
+[0.891s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/hook/cmake_prefix_path.ps1'
+[0.891s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/hook/cmake_prefix_path.dsv'
+[0.892s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/hook/cmake_prefix_path.sh'
+[0.892s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts/bin'
+[0.892s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts/lib/pkgconfig/soarm_scripts.pc'
+[0.893s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts/lib/python3.10/site-packages'
+[0.893s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts/bin'
+[0.893s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.ps1'
+[0.894s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.dsv'
+[0.894s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.sh'
+[0.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.bash'
+[0.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.zsh'
+[0.896s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yundali/Arm_Project_WS/install/soarm_scripts/share/colcon-core/packages/soarm_scripts)
+[0.896s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(soarm_scripts)
+[0.896s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts' for CMake module files
+[0.897s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts' for CMake config files
+[0.897s] Level 1:colcon.colcon_core.shell:create_environment_hook('soarm_scripts', 'cmake_prefix_path')
+[0.897s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/hook/cmake_prefix_path.ps1'
+[0.898s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/hook/cmake_prefix_path.dsv'
+[0.898s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/hook/cmake_prefix_path.sh'
+[0.899s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts/bin'
+[0.899s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts/lib/pkgconfig/soarm_scripts.pc'
+[0.899s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts/lib/python3.10/site-packages'
+[0.900s] Level 1:colcon.colcon_core.environment:checking '/home/yundali/Arm_Project_WS/install/soarm_scripts/bin'
+[0.900s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.ps1'
+[0.901s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.dsv'
+[0.902s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.sh'
+[0.902s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.bash'
+[0.903s] INFO:colcon.colcon_core.shell:Creating package script '/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.zsh'
+[0.903s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/yundali/Arm_Project_WS/install/soarm_scripts/share/colcon-core/packages/soarm_scripts)
+[0.903s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.904s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.904s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[0.904s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.911s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.911s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.911s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.926s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[0.926s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yundali/Arm_Project_WS/install/local_setup.ps1'
+[0.927s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/yundali/Arm_Project_WS/install/_local_setup_util_ps1.py'
+[0.929s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yundali/Arm_Project_WS/install/setup.ps1'
+[0.930s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yundali/Arm_Project_WS/install/local_setup.sh'
+[0.931s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/yundali/Arm_Project_WS/install/_local_setup_util_sh.py'
+[0.932s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yundali/Arm_Project_WS/install/setup.sh'
+[0.933s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yundali/Arm_Project_WS/install/local_setup.bash'
+[0.934s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yundali/Arm_Project_WS/install/setup.bash'
+[0.936s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/yundali/Arm_Project_WS/install/local_setup.zsh'
+[0.937s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/yundali/Arm_Project_WS/install/setup.zsh'

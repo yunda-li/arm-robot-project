@@ -1,0 +1,1 @@
+/home/yundali/Arm_Project_WS/build/soarm_scripts/ament_cmake_core/soarm_scriptsConfig-version.cmake

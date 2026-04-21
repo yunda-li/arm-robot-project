@@ -1,0 +1,54 @@
+controller_manager:
+  ros__parameters: #NEEDS 2 UNDERSCORES
+    update_rate: 10
+    arm_controller:
+      #Send trajectory commands to arm at any time, tontains list of points/coords
+      type: joint_trajectory_controller/JointTrajectoryController
+
+    #eventually will be same type as arm_controller
+    gripper_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      # type: forward_command_controller/ForwardCommandController
+
+    #Publishes current state of robot so other nodes can subscribe and read
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+    
+arm_controller:
+  ros__parameters: 
+    joints:
+      - wrist_roll
+      - wrist_flex
+      - elbow_flex
+      - shoulder_lift
+      - shoulder_pan
+
+    command_interfaces:
+      - position
+
+    #Doesn't always match command_interfaces, may read more info than write
+    state_interfaces:
+      - position
+      - velocity
+
+    #Real motors will not have feedback about current position, no - since param expects single value
+    open_loop_control: true #need to double check with hardware
+    allow_integration_in_goal_trajectories: true
+
+gripper_controller:
+  ros__parameters:
+    joints:
+      - gripper
+
+    #only for initial testing
+    interface_name: position
+
+    command_interfaces:
+      - position
+
+    state_interfaces:
+      - position
+      - velocity
+
+    open_loop_control: true
+    allow_integration_in_goal_trajectories: true

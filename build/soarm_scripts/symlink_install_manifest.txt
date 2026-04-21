@@ -1,0 +1,15 @@
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/ament_index/resource_index/package_run_dependencies/soarm_scripts
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/ament_index/resource_index/parent_prefix_path/soarm_scripts
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/environment/ament_prefix_path.sh
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/environment/ament_prefix_path.dsv
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/environment/path.sh
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/environment/path.dsv
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/local_setup.bash
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/local_setup.sh
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/local_setup.zsh
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/local_setup.dsv
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.dsv
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/ament_index/resource_index/packages/soarm_scripts
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/cmake/soarm_scriptsConfig.cmake
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/cmake/soarm_scriptsConfig-version.cmake
+/home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.xml

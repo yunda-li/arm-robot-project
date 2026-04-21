@@ -1,0 +1,9 @@
+/home/yundali/Arm_Project_WS/build/soarm_controller/CMakeFiles/uninstall.dir
+/home/yundali/Arm_Project_WS/build/soarm_controller/CMakeFiles/soarm_controller_uninstall.dir
+/home/yundali/Arm_Project_WS/build/soarm_controller/CMakeFiles/test.dir
+/home/yundali/Arm_Project_WS/build/soarm_controller/CMakeFiles/edit_cache.dir
+/home/yundali/Arm_Project_WS/build/soarm_controller/CMakeFiles/rebuild_cache.dir
+/home/yundali/Arm_Project_WS/build/soarm_controller/CMakeFiles/list_install_components.dir
+/home/yundali/Arm_Project_WS/build/soarm_controller/CMakeFiles/install.dir
+/home/yundali/Arm_Project_WS/build/soarm_controller/CMakeFiles/install/local.dir
+/home/yundali/Arm_Project_WS/build/soarm_controller/CMakeFiles/install/strip.dir

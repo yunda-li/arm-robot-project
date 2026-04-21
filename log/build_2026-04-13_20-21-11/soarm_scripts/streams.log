@@ -1,0 +1,42 @@
+[0.018s] Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_scripts': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_scripts -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_scripts
+[0.091s] -- The C compiler identification is GNU 11.4.0
+[0.163s] -- The CXX compiler identification is GNU 11.4.0
+[0.172s] -- Detecting C compiler ABI info
+[0.261s] -- Detecting C compiler ABI info - done
+[0.277s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.277s] -- Detecting C compile features
+[0.278s] -- Detecting C compile features - done
+[0.284s] -- Detecting CXX compiler ABI info
+[0.393s] -- Detecting CXX compiler ABI info - done
+[0.403s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.404s] -- Detecting CXX compile features
+[0.404s] -- Detecting CXX compile features - done
+[0.408s] -- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.595s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.713s] -- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[0.820s] -- Added test 'lint_cmake' to check CMake code style
+[0.822s] -- Added test 'xmllint' to check XML markup files
+[0.824s] -- Configuring done
+[0.828s] -- Generating done
+[0.830s] -- Build files have been written to: /home/yundali/Arm_Project_WS/build/soarm_scripts
+[0.836s] Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_scripts' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/yundali/Arm_Project_WS/src/soarm_scripts -DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/install/soarm_scripts
+[0.838s] Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_scripts': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_scripts -- -j8 -l8
+[0.890s] Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_scripts' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_scripts -- -j8 -l8
+[0.903s] Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_scripts': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_scripts
+[0.913s] -- Install configuration: ""
+[0.915s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/ament_index/resource_index/package_run_dependencies/soarm_scripts
+[0.916s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/ament_index/resource_index/parent_prefix_path/soarm_scripts
+[0.916s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/environment/ament_prefix_path.sh
+[0.917s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/environment/ament_prefix_path.dsv
+[0.917s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/environment/path.sh
+[0.917s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/environment/path.dsv
+[0.917s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/local_setup.bash
+[0.917s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/local_setup.sh
+[0.917s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/local_setup.zsh
+[0.918s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/local_setup.dsv
+[0.918s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.dsv
+[0.918s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/ament_index/resource_index/packages/soarm_scripts
+[0.918s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/cmake/soarm_scriptsConfig.cmake
+[0.918s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/cmake/soarm_scriptsConfig-version.cmake
+[0.918s] -- Installing: /home/yundali/Arm_Project_WS/install/soarm_scripts/share/soarm_scripts/package.xml
+[0.920s] Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_scripts' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_scripts
