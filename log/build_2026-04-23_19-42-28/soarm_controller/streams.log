@@ -1,0 +1,21 @@
+[0.024s] Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_controller -- -j8 -l8
+[0.071s] Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_controller -- -j8 -l8
+[0.084s] Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_controller
+[0.094s] -- Install configuration: ""
+[0.095s] -- Execute custom install script
+[0.095s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/ament_index/resource_index/package_run_dependencies/soarm_controller
+[0.095s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/ament_index/resource_index/parent_prefix_path/soarm_controller
+[0.096s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/environment/ament_prefix_path.sh
+[0.096s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/environment/ament_prefix_path.dsv
+[0.096s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/environment/path.sh
+[0.097s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/environment/path.dsv
+[0.097s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/local_setup.bash
+[0.097s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/local_setup.sh
+[0.097s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/local_setup.zsh
+[0.098s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/local_setup.dsv
+[0.099s] -- Symlinking: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.dsv
+[0.112s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/ament_index/resource_index/packages/soarm_controller
+[0.113s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/cmake/soarm_controllerConfig.cmake
+[0.113s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/cmake/soarm_controllerConfig-version.cmake
+[0.113s] -- Up-to-date symlink: /home/yundali/Arm_Project_WS/install/soarm_controller/share/soarm_controller/package.xml
+[0.153s] Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_controller

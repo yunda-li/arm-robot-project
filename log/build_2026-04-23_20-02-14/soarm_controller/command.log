@@ -1,0 +1,4 @@
+Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_controller -- -j8 -l8
+Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/build/soarm_controller -- -j8 -l8
+Invoking command in '/home/yundali/Arm_Project_WS/build/soarm_controller': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_controller
+Invoked command in '/home/yundali/Arm_Project_WS/build/soarm_controller' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/build/soarm_controller
