@@ -9,8 +9,20 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
+  <depend>rclcpp</depend>
+  <depend>std_msgs</depend>
+  <depend>trajectory_msgs</depend>
+  <depend>urdf</depend>
+  <depend>orocos_kdl</depend>
+  <depend>kdl_parser</depend>
+
+
+  <depend>rcl_interfaces</depend>
+  <depend>moveit_ros_planning_interface</depend>
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
+
 
   <export>
     <build_type>ament_cmake</build_type>

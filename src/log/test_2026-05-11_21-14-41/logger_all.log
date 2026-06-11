@@ -1,0 +1,104 @@
+[0.206s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'test', '--packages-select', 'feetech_ros2_driver']
+[0.207s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='test', build_base='build', install_base='install', merge_install=False, test_result_base=None, retest_until_fail=0, retest_until_pass=0, abort_on_error=False, return_code_on_test_failure=False, executor='parallel', parallel_workers=8, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['feetech_ros2_driver'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], ctest_args=None, python_testing=None, pytest_args=None, pytest_with_coverage=False, unittest_args=None, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7ccbc3362e90>, verb_extension=<colcon_core.verb.test.TestVerb object at 0x7ccbc34e36a0>, main=<bound method TestVerb.main of <colcon_core.verb.test.TestVerb object at 0x7ccbc34e36a0>>, mixin_verb=('test',))
+[0.452s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.452s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.452s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.452s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.452s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.452s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.452s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/yundali/Arm_Project_WS/src'
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.452s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.453s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.465s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.466s] Level 1:colcon.colcon_core.package_identification:_identify(feetech_ros2_driver) by extensions ['ignore', 'ignore_ament_install']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(feetech_ros2_driver) by extension 'ignore'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(feetech_ros2_driver) by extension 'ignore_ament_install'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(feetech_ros2_driver) by extensions ['colcon_pkg']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(feetech_ros2_driver) by extension 'colcon_pkg'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(feetech_ros2_driver) by extensions ['colcon_meta']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(feetech_ros2_driver) by extension 'colcon_meta'
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(feetech_ros2_driver) by extensions ['ros']
+[0.467s] Level 1:colcon.colcon_core.package_identification:_identify(feetech_ros2_driver) by extension 'ros'
+[0.470s] DEBUG:colcon.colcon_core.package_identification:Package 'feetech_ros2_driver' with type 'ros.ament_cmake' and name 'feetech_ros2_driver'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.471s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_controller) by extension 'ignore'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_controller) by extension 'ignore_ament_install'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_controller) by extensions ['colcon_pkg']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_controller) by extension 'colcon_pkg'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_controller) by extensions ['colcon_meta']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_controller) by extension 'colcon_meta'
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_controller) by extensions ['ros']
+[0.472s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_controller) by extension 'ros'
+[0.473s] DEBUG:colcon.colcon_core.package_identification:Package 'soarm_controller' with type 'ros.ament_cmake' and name 'soarm_controller'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_description) by extensions ['ignore', 'ignore_ament_install']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_description) by extension 'ignore'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_description) by extension 'ignore_ament_install'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_description) by extensions ['colcon_pkg']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_description) by extension 'colcon_pkg'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_description) by extensions ['colcon_meta']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_description) by extension 'colcon_meta'
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_description) by extensions ['ros']
+[0.473s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_description) by extension 'ros'
+[0.474s] DEBUG:colcon.colcon_core.package_identification:Package 'soarm_description' with type 'ros.ament_cmake' and name 'soarm_description'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_scripts) by extensions ['ignore', 'ignore_ament_install']
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_scripts) by extension 'ignore'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_scripts) by extension 'ignore_ament_install'
+[0.474s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_scripts) by extensions ['colcon_pkg']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_scripts) by extension 'colcon_pkg'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_scripts) by extensions ['colcon_meta']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_scripts) by extension 'colcon_meta'
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_scripts) by extensions ['ros']
+[0.475s] Level 1:colcon.colcon_core.package_identification:_identify(soarm_scripts) by extension 'ros'
+[0.475s] DEBUG:colcon.colcon_core.package_identification:Package 'soarm_scripts' with type 'ros.ament_cmake' and name 'soarm_scripts'
+[0.475s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.475s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.475s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.475s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.475s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.478s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'soarm_controller' in 'soarm_controller'
+[0.478s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'soarm_description' in 'soarm_description'
+[0.478s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'soarm_scripts' in 'soarm_scripts'
+[0.478s] Level 5:colcon.colcon_core.verb:set package 'feetech_ros2_driver' test argument 'ctest_args' from command line to 'None'
+[0.479s] Level 5:colcon.colcon_core.verb:set package 'feetech_ros2_driver' test argument 'python_testing' from command line to 'None'
+[0.479s] Level 5:colcon.colcon_core.verb:set package 'feetech_ros2_driver' test argument 'pytest_args' from command line to 'None'
+[0.479s] Level 5:colcon.colcon_core.verb:set package 'feetech_ros2_driver' test argument 'pytest_with_coverage' from command line to 'False'
+[0.479s] Level 5:colcon.colcon_core.verb:set package 'feetech_ros2_driver' test argument 'unittest_args' from command line to 'None'
+[0.479s] Level 5:colcon.colcon_core.verb:set package 'feetech_ros2_driver' test argument 'retest_until_pass' from command line to '0'
+[0.479s] Level 5:colcon.colcon_core.verb:set package 'feetech_ros2_driver' test argument 'retest_until_fail' from command line to '0'
+[0.479s] DEBUG:colcon.colcon_core.verb.test:Testing package 'feetech_ros2_driver' with the following arguments: {'build_base': '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver', 'ctest_args': None, 'install_base': '/home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver', 'path': '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver', 'pytest_args': None, 'pytest_with_coverage': False, 'python_testing': None, 'retest_until_fail': 0, 'retest_until_pass': 0, 'test_result_base': None, 'unittest_args': None}
+[0.479s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.480s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.480s] INFO:colcon.colcon_ros.task.ament_cmake.test:Testing ROS package in '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver' with build type 'ament_cmake'
+[0.481s] INFO:colcon.colcon_cmake.task.cmake.test:Testing CMake package in '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'
+[0.483s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.483s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.484s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.627s] Level 5:colcon.colcon_cmake.task.cmake.test:No ctests found in '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'
+[0.627s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[0.628s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[0.628s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[0.628s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[0.634s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[0.635s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[0.635s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[0.643s] DEBUG:colcon.colcon_core.event_reactor:joined thread

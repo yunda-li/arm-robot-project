@@ -1,0 +1,580 @@
+[0.000000] (-) TimerEvent: {}
+[0.000292] (feetech_ros2_driver) JobQueued: {'identifier': 'feetech_ros2_driver', 'dependencies': OrderedDict()}
+[0.000349] (soarm_controller) JobQueued: {'identifier': 'soarm_controller', 'dependencies': OrderedDict()}
+[0.000373] (soarm_description) JobQueued: {'identifier': 'soarm_description', 'dependencies': OrderedDict()}
+[0.000392] (soarm_scripts) JobQueued: {'identifier': 'soarm_scripts', 'dependencies': OrderedDict()}
+[0.000411] (feetech_ros2_driver) JobStarted: {'identifier': 'feetech_ros2_driver'}
+[0.038653] (soarm_controller) JobStarted: {'identifier': 'soarm_controller'}
+[0.043153] (soarm_description) JobStarted: {'identifier': 'soarm_description'}
+[0.048058] (soarm_scripts) JobStarted: {'identifier': 'soarm_scripts'}
+[0.054873] (feetech_ros2_driver) JobProgress: {'identifier': 'feetech_ros2_driver', 'progress': 'cmake'}
+[0.055347] (feetech_ros2_driver) Command: {'cmd': ['/usr/bin/cmake', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver', '-DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[0.071764] (soarm_controller) JobProgress: {'identifier': 'soarm_controller', 'progress': 'cmake'}
+[0.073182] (soarm_controller) Command: {'cmd': ['/usr/bin/cmake', '/home/yundali/Arm_Project_WS/src/soarm_controller', '-DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/src/install/soarm_controller'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/soarm_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/soarm_controller'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[0.074654] (soarm_description) JobProgress: {'identifier': 'soarm_description', 'progress': 'cmake'}
+[0.074879] (soarm_description) Command: {'cmd': ['/usr/bin/cmake', '/home/yundali/Arm_Project_WS/src/soarm_description', '-DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/src/install/soarm_description'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/soarm_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/soarm_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[0.079514] (soarm_scripts) JobProgress: {'identifier': 'soarm_scripts', 'progress': 'cmake'}
+[0.080815] (soarm_scripts) Command: {'cmd': ['/usr/bin/cmake', '/home/yundali/Arm_Project_WS/src/soarm_scripts', '-DCMAKE_INSTALL_PREFIX=/home/yundali/Arm_Project_WS/src/install/soarm_scripts'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/soarm_scripts', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/soarm_scripts'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[0.099267] (-) TimerEvent: {}
+[0.199614] (-) TimerEvent: {}
+[0.299941] (-) TimerEvent: {}
+[0.400267] (-) TimerEvent: {}
+[0.500850] (-) TimerEvent: {}
+[0.601297] (-) TimerEvent: {}
+[0.701709] (-) TimerEvent: {}
+[0.792226] (soarm_scripts) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.792667] (soarm_description) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.793416] (feetech_ros2_driver) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.794141] (soarm_controller) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.801874] (-) TimerEvent: {}
+[0.902258] (-) TimerEvent: {}
+[1.002562] (-) TimerEvent: {}
+[1.102887] (-) TimerEvent: {}
+[1.175116] (feetech_ros2_driver) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.176091] (soarm_description) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.176990] (soarm_controller) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.177219] (soarm_scripts) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[1.203004] (-) TimerEvent: {}
+[1.285737] (soarm_scripts) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.286156] (soarm_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.286489] (soarm_controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.286655] (feetech_ros2_driver) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.303173] (-) TimerEvent: {}
+[1.403516] (-) TimerEvent: {}
+[1.503871] (-) TimerEvent: {}
+[1.549093] (soarm_description) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.549952] (soarm_controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.553296] (soarm_scripts) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.556082] (feetech_ros2_driver) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.561532] (soarm_controller) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.562155] (soarm_controller) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.565332] (feetech_ros2_driver) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.565731] (feetech_ros2_driver) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.566507] (soarm_description) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.566948] (soarm_description) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.569006] (soarm_scripts) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.569355] (soarm_scripts) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.585576] (feetech_ros2_driver) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.585952] (soarm_controller) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.586149] (soarm_scripts) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.586416] (soarm_description) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.594460] (feetech_ros2_driver) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.594892] (soarm_controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.595757] (soarm_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.596002] (soarm_scripts) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.603977] (-) TimerEvent: {}
+[1.704262] (-) TimerEvent: {}
+[1.775366] (soarm_scripts) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.783782] (feetech_ros2_driver) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.786990] (soarm_description) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.791640] (soarm_scripts) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.791849] (soarm_controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.792043] (soarm_scripts) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.792896] (soarm_scripts) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.798875] (feetech_ros2_driver) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.799438] (feetech_ros2_driver) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.799975] (feetech_ros2_driver) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.804364] (-) TimerEvent: {}
+[1.805171] (soarm_description) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.805745] (soarm_description) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.806739] (soarm_description) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.809486] (soarm_controller) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.809927] (soarm_controller) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.810589] (soarm_controller) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.904532] (-) TimerEvent: {}
+[1.937379] (soarm_scripts) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.937650] (soarm_controller) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[1.937788] (soarm_description) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[2.004654] (-) TimerEvent: {}
+[2.011112] (feetech_ros2_driver) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[2.104754] (-) TimerEvent: {}
+[2.158392] (feetech_ros2_driver) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[2.161093] (feetech_ros2_driver) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[2.204861] (-) TimerEvent: {}
+[2.287728] (feetech_ros2_driver) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[2.289434] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[2.300766] (soarm_scripts) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[2.304979] (-) TimerEvent: {}
+[2.312909] (soarm_controller) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[2.318003] (soarm_description) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[2.372091] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found PkgConfig: /usr/bin/pkg-config (found version "0.29.2") \n'}
+[2.372972] (feetech_ros2_driver) StdoutLine: {'line': b"-- Checking for module 'libserial'\n"}
+[2.405146] (-) TimerEvent: {}
+[2.476454] (feetech_ros2_driver) StdoutLine: {'line': b'--   Found libserial, version 1.0.0\n'}
+[2.505315] (-) TimerEvent: {}
+[2.525008] (feetech_ros2_driver) StdoutLine: {'line': b'-- feetech_driver version: 0.1.0\n'}
+[2.587462] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.13 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[2.605416] (-) TimerEvent: {}
+[2.705665] (-) TimerEvent: {}
+[2.747673] (soarm_controller) StdoutLine: {'line': b'-- Found joint_trajectory_controller: 2.52.0 (/opt/ros/humble/share/joint_trajectory_controller/cmake)\n'}
+[2.757602] (soarm_description) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[2.757849] (soarm_scripts) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[2.775720] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[2.805785] (-) TimerEvent: {}
+[2.900792] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found rclcpp: 16.0.18 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[2.905890] (-) TimerEvent: {}
+[2.978765] (soarm_scripts) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.980773] (soarm_scripts) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[2.982511] (soarm_description) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[2.983671] (soarm_description) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[2.984664] (soarm_description) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[2.987651] (soarm_description) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[3.004944] (soarm_scripts) StdoutLine: {'line': b'-- Configuring done\n'}
+[3.005171] (soarm_description) StdoutLine: {'line': b'-- Configuring done\n'}
+[3.005975] (-) TimerEvent: {}
+[3.009180] (soarm_scripts) StdoutLine: {'line': b'-- Generating done\n'}
+[3.011103] (soarm_description) StdoutLine: {'line': b'-- Generating done\n'}
+[3.011878] (soarm_scripts) StdoutLine: {'line': b'-- Build files have been written to: /home/yundali/Arm_Project_WS/src/build/soarm_scripts\n'}
+[3.013823] (soarm_description) StdoutLine: {'line': b'-- Build files have been written to: /home/yundali/Arm_Project_WS/src/build/soarm_description\n'}
+[3.018550] (soarm_scripts) CommandEnded: {'returncode': 0}
+[3.021413] (soarm_scripts) JobProgress: {'identifier': 'soarm_scripts', 'progress': 'build'}
+[3.021490] (soarm_scripts) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/yundali/Arm_Project_WS/src/build/soarm_scripts', '--', '-j8', '-l8'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/soarm_scripts', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/soarm_scripts'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[3.023881] (soarm_description) CommandEnded: {'returncode': 0}
+[3.024737] (soarm_description) JobProgress: {'identifier': 'soarm_description', 'progress': 'build'}
+[3.025325] (soarm_description) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/yundali/Arm_Project_WS/src/build/soarm_description', '--', '-j8', '-l8'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/soarm_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/soarm_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[3.043995] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[3.044443] (soarm_controller) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.8 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[3.073347] (soarm_description) CommandEnded: {'returncode': 0}
+[3.074710] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[3.075068] (soarm_controller) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.8 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[3.075388] (soarm_description) JobProgress: {'identifier': 'soarm_description', 'progress': 'install'}
+[3.087456] (soarm_description) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/yundali/Arm_Project_WS/src/build/soarm_description'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/soarm_description', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/soarm_description'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[3.089549] (soarm_scripts) CommandEnded: {'returncode': 0}
+[3.090577] (soarm_scripts) JobProgress: {'identifier': 'soarm_scripts', 'progress': 'install'}
+[3.090821] (soarm_scripts) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/yundali/Arm_Project_WS/src/build/soarm_scripts'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/soarm_scripts', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/soarm_scripts'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[3.097429] (soarm_description) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.097706] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes\n'}
+[3.097849] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Wrist_Roll_Follower_SO101.stl\n'}
+[3.100505] (soarm_scripts) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[3.100780] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/ament_index/resource_index/package_run_dependencies/soarm_scripts\n'}
+[3.101056] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/ament_index/resource_index/parent_prefix_path/soarm_scripts\n'}
+[3.101379] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/environment/ament_prefix_path.sh\n'}
+[3.101679] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/environment/ament_prefix_path.dsv\n'}
+[3.101845] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/environment/path.sh\n'}
+[3.101951] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/environment/path.dsv\n'}
+[3.102112] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/local_setup.bash\n'}
+[3.102434] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/local_setup.sh\n'}
+[3.102635] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/local_setup.zsh\n'}
+[3.102832] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/local_setup.dsv\n'}
+[3.102996] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/package.dsv\n'}
+[3.103252] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/ament_index/resource_index/packages/soarm_scripts\n'}
+[3.103588] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/cmake/soarm_scriptsConfig.cmake\n'}
+[3.103846] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/cmake/soarm_scriptsConfig-version.cmake\n'}
+[3.104028] (soarm_scripts) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_scripts/share/soarm_scripts/package.xml\n'}
+[3.106023] (soarm_scripts) CommandEnded: {'returncode': 0}
+[3.106494] (-) TimerEvent: {}
+[3.113107] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[3.113325] (soarm_controller) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.8 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[3.206673] (-) TimerEvent: {}
+[3.214528] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Rotation_Pitch_SO101.stl\n'}
+[3.306873] (-) TimerEvent: {}
+[3.373836] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Base_SO101.stl\n'}
+[3.407046] (-) TimerEvent: {}
+[3.461615] (soarm_scripts) JobEnded: {'identifier': 'soarm_scripts', 'rc': 0}
+[3.471142] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/WaveShare_Mounting_Plate_SO101.stl\n'}
+[3.490141] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Wrist_Roll_SO101.stl\n'}
+[3.501864] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Seeedstudio_Mounting_Plate_SO101.stl\n'}
+[3.507140] (-) TimerEvent: {}
+[3.526960] (feetech_ros2_driver) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.527114] (soarm_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[3.527467] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Motor_holder_SO101_Base.stl\n'}
+[3.539689] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Upper_arm_SO101.stl\n'}
+[3.607191] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Wrist_Roll_Pitch_SO101.stl\n'}
+[3.607412] (-) TimerEvent: {}
+[3.623775] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/SO101 Assembly.stl\n'}
+[3.707511] (-) TimerEvent: {}
+[3.807814] (-) TimerEvent: {}
+[3.820581] (feetech_ros2_driver) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.820954] (soarm_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.907898] (-) TimerEvent: {}
+[4.008241] (-) TimerEvent: {}
+[4.108600] (-) TimerEvent: {}
+[4.208978] (-) TimerEvent: {}
+[4.309311] (-) TimerEvent: {}
+[4.409675] (-) TimerEvent: {}
+[4.510033] (-) TimerEvent: {}
+[4.610342] (-) TimerEvent: {}
+[4.649338] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Under_arm_SO101.stl\n'}
+[4.710435] (-) TimerEvent: {}
+[4.722062] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Base_motor_holder_SO101.stl\n'}
+[4.810605] (-) TimerEvent: {}
+[4.830813] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[4.831079] (soarm_controller) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[4.852456] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Moving_Jaw_SO101.stl\n'}
+[4.864340] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Handle_SO101.stl\n'}
+[4.883172] (soarm_controller) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[4.883489] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.10 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[4.910773] (-) TimerEvent: {}
+[4.952694] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Motor_holder_SO101_Wrist.stl\n'}
+[5.010914] (-) TimerEvent: {}
+[5.036353] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/meshes/Trigger_SO101.stl\n'}
+[5.051962] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/urdf\n'}
+[5.052295] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/urdf/soarm_ros2_control.xacro\n'}
+[5.078045] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/urdf/soarm.urdf.xacro\n'}
+[5.099340] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/launch\n'}
+[5.099692] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/launch/display.launch.py\n'}
+[5.099858] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/launch/gazebo.launch.py\n'}
+[5.100023] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/rviz\n'}
+[5.100153] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/rviz/display.rviz\n'}
+[5.103118] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/ament_index/resource_index/package_run_dependencies/soarm_description\n'}
+[5.103502] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/ament_index/resource_index/parent_prefix_path/soarm_description\n'}
+[5.103922] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/environment/ament_prefix_path.sh\n'}
+[5.104074] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/environment/ament_prefix_path.dsv\n'}
+[5.104322] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/environment/path.sh\n'}
+[5.104498] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/environment/path.dsv\n'}
+[5.104769] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/local_setup.bash\n'}
+[5.104957] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/local_setup.sh\n'}
+[5.105167] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/local_setup.zsh\n'}
+[5.105477] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/local_setup.dsv\n'}
+[5.105744] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/package.dsv\n'}
+[5.105991] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/ament_index/resource_index/packages/soarm_description\n'}
+[5.106381] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/cmake/soarm_descriptionConfig.cmake\n'}
+[5.106619] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/cmake/soarm_descriptionConfig-version.cmake\n'}
+[5.106868] (soarm_description) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_description/share/soarm_description/package.xml\n'}
+[5.109963] (soarm_description) CommandEnded: {'returncode': 0}
+[5.111007] (-) TimerEvent: {}
+[5.123548] (soarm_description) JobEnded: {'identifier': 'soarm_description', 'rc': 0}
+[5.211146] (-) TimerEvent: {}
+[5.311467] (-) TimerEvent: {}
+[5.384136] (soarm_controller) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[5.384621] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[5.411579] (-) TimerEvent: {}
+[5.442032] (soarm_controller) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[5.443469] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[5.511673] (-) TimerEvent: {}
+[5.515374] (soarm_controller) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[5.517491] (feetech_ros2_driver) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[5.560011] (soarm_controller) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[5.611793] (-) TimerEvent: {}
+[5.649769] (soarm_controller) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[5.650125] (soarm_controller) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[5.711884] (-) TimerEvent: {}
+[5.739731] (soarm_controller) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[5.742071] (soarm_controller) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[5.812053] (-) TimerEvent: {}
+[5.833522] (feetech_ros2_driver) StdoutLine: {'line': b'-- Found hardware_interface: 2.53.1 (/opt/ros/humble/share/hardware_interface/cmake)\n'}
+[5.912293] (-) TimerEvent: {}
+[6.012650] (-) TimerEvent: {}
+[6.112932] (-) TimerEvent: {}
+[6.213310] (-) TimerEvent: {}
+[6.313597] (-) TimerEvent: {}
+[6.413880] (-) TimerEvent: {}
+[6.514178] (-) TimerEvent: {}
+[6.587939] (feetech_ros2_driver) StdoutLine: {'line': b'-- Configuring done\n'}
+[6.614374] (-) TimerEvent: {}
+[6.629235] (feetech_ros2_driver) StdoutLine: {'line': b'-- Generating done\n'}
+[6.637247] (feetech_ros2_driver) StdoutLine: {'line': b'-- Build files have been written to: /home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver\n'}
+[6.650299] (feetech_ros2_driver) CommandEnded: {'returncode': 0}
+[6.651099] (feetech_ros2_driver) JobProgress: {'identifier': 'feetech_ros2_driver', 'progress': 'build'}
+[6.652001] (feetech_ros2_driver) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver', '--', '-j8', '-l8'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[6.713243] (feetech_ros2_driver) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object feetech_driver/CMakeFiles/serial_port.dir/src/serial_port.cpp.o\x1b[0m\n'}
+[6.713458] (feetech_ros2_driver) StdoutLine: {'line': b'[ 22%] \x1b[34m\x1b[1mGenerating feetech_ros2_driver/version.hpp\x1b[0m\n'}
+[6.714467] (-) TimerEvent: {}
+[6.717452] (soarm_controller) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.15 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[6.748854] (feetech_ros2_driver) StdoutLine: {'line': b'[ 22%] Built target ament_generate_version_header__feetech_ros2_driver\n'}
+[6.814584] (-) TimerEvent: {}
+[6.827820] (soarm_controller) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[6.828089] (soarm_controller) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[6.828180] (soarm_controller) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[6.828796] (soarm_controller) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[6.829675] (soarm_controller) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[6.830496] (soarm_controller) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[6.832071] (soarm_controller) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[6.832230] (soarm_controller) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[6.832861] (soarm_controller) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[6.834740] (soarm_controller) StdoutLine: {'line': b'-- Configuring done\n'}
+[6.844539] (soarm_controller) StdoutLine: {'line': b'-- Generating done\n'}
+[6.848953] (soarm_controller) StdoutLine: {'line': b'-- Build files have been written to: /home/yundali/Arm_Project_WS/src/build/soarm_controller\n'}
+[6.862564] (soarm_controller) CommandEnded: {'returncode': 0}
+[6.863443] (soarm_controller) JobProgress: {'identifier': 'soarm_controller', 'progress': 'build'}
+[6.864318] (soarm_controller) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/yundali/Arm_Project_WS/src/build/soarm_controller', '--', '-j8', '-l8'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/soarm_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/soarm_controller'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[6.913650] (soarm_controller) CommandEnded: {'returncode': 0}
+[6.914342] (soarm_controller) JobProgress: {'identifier': 'soarm_controller', 'progress': 'install'}
+[6.915190] (soarm_controller) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/yundali/Arm_Project_WS/src/build/soarm_controller'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/soarm_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/soarm_controller'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[6.916327] (-) TimerEvent: {}
+[6.925031] (soarm_controller) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[6.925313] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/config\n'}
+[6.925587] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/config/soarm_controllers.yaml\n'}
+[6.925857] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/launch\n'}
+[6.925962] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/launch/controller.launch.py\n'}
+[6.926169] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/ament_index/resource_index/package_run_dependencies/soarm_controller\n'}
+[6.926588] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/ament_index/resource_index/parent_prefix_path/soarm_controller\n'}
+[6.926887] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/environment/ament_prefix_path.sh\n'}
+[6.927125] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/environment/ament_prefix_path.dsv\n'}
+[6.927496] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/environment/path.sh\n'}
+[6.927698] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/environment/path.dsv\n'}
+[6.927916] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/local_setup.bash\n'}
+[6.928168] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/local_setup.sh\n'}
+[6.928481] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/local_setup.zsh\n'}
+[6.928755] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/local_setup.dsv\n'}
+[6.928981] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/package.dsv\n'}
+[6.929230] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/ament_index/resource_index/packages/soarm_controller\n'}
+[6.929554] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/cmake/soarm_controllerConfig.cmake\n'}
+[6.929775] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/cmake/soarm_controllerConfig-version.cmake\n'}
+[6.930012] (soarm_controller) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/soarm_controller/share/soarm_controller/package.xml\n'}
+[6.932596] (soarm_controller) CommandEnded: {'returncode': 0}
+[6.946143] (soarm_controller) JobEnded: {'identifier': 'soarm_controller', 'rc': 0}
+[7.016412] (-) TimerEvent: {}
+[7.116727] (-) TimerEvent: {}
+[7.217097] (-) TimerEvent: {}
+[7.317505] (-) TimerEvent: {}
+[7.417885] (-) TimerEvent: {}
+[7.518226] (-) TimerEvent: {}
+[7.618528] (-) TimerEvent: {}
+[7.718980] (-) TimerEvent: {}
+[7.819366] (-) TimerEvent: {}
+[7.919653] (-) TimerEvent: {}
+[8.019962] (-) TimerEvent: {}
+[8.120342] (-) TimerEvent: {}
+[8.220644] (-) TimerEvent: {}
+[8.320950] (-) TimerEvent: {}
+[8.421294] (-) TimerEvent: {}
+[8.521593] (-) TimerEvent: {}
+[8.621906] (-) TimerEvent: {}
+[8.722258] (-) TimerEvent: {}
+[8.822564] (-) TimerEvent: {}
+[8.922890] (-) TimerEvent: {}
+[9.023248] (-) TimerEvent: {}
+[9.123597] (-) TimerEvent: {}
+[9.223932] (-) TimerEvent: {}
+[9.324278] (-) TimerEvent: {}
+[9.424694] (-) TimerEvent: {}
+[9.525013] (-) TimerEvent: {}
+[9.625345] (-) TimerEvent: {}
+[9.725681] (-) TimerEvent: {}
+[9.826023] (-) TimerEvent: {}
+[9.926342] (-) TimerEvent: {}
+[10.026634] (-) TimerEvent: {}
+[10.126956] (-) TimerEvent: {}
+[10.227306] (-) TimerEvent: {}
+[10.327629] (-) TimerEvent: {}
+[10.427908] (-) TimerEvent: {}
+[10.528233] (-) TimerEvent: {}
+[10.628567] (-) TimerEvent: {}
+[10.728887] (-) TimerEvent: {}
+[10.829282] (-) TimerEvent: {}
+[10.929584] (-) TimerEvent: {}
+[10.996272] (feetech_ros2_driver) StdoutLine: {'line': b'[ 33%] \x1b[32m\x1b[1mLinking CXX shared library libserial_port.so\x1b[0m\n'}
+[11.029812] (-) TimerEvent: {}
+[11.130088] (-) TimerEvent: {}
+[11.159324] (feetech_ros2_driver) StdoutLine: {'line': b'[ 33%] Built target serial_port\n'}
+[11.183419] (feetech_ros2_driver) StdoutLine: {'line': b'[ 44%] \x1b[32mBuilding CXX object feetech_driver/CMakeFiles/communication_protocol.dir/src/communication_protocol.cpp.o\x1b[0m\n'}
+[11.230219] (-) TimerEvent: {}
+[11.330694] (-) TimerEvent: {}
+[11.431098] (-) TimerEvent: {}
+[11.531518] (-) TimerEvent: {}
+[11.631845] (-) TimerEvent: {}
+[11.732279] (-) TimerEvent: {}
+[11.832584] (-) TimerEvent: {}
+[11.932886] (-) TimerEvent: {}
+[12.033233] (-) TimerEvent: {}
+[12.133574] (-) TimerEvent: {}
+[12.233897] (-) TimerEvent: {}
+[12.334210] (-) TimerEvent: {}
+[12.434580] (-) TimerEvent: {}
+[12.534885] (-) TimerEvent: {}
+[12.635268] (-) TimerEvent: {}
+[12.735634] (-) TimerEvent: {}
+[12.835930] (-) TimerEvent: {}
+[12.936256] (-) TimerEvent: {}
+[13.036588] (-) TimerEvent: {}
+[13.136895] (-) TimerEvent: {}
+[13.237217] (-) TimerEvent: {}
+[13.337534] (-) TimerEvent: {}
+[13.437837] (-) TimerEvent: {}
+[13.538157] (-) TimerEvent: {}
+[13.638599] (-) TimerEvent: {}
+[13.738891] (-) TimerEvent: {}
+[13.839273] (-) TimerEvent: {}
+[13.862086] (feetech_ros2_driver) StdoutLine: {'line': b'[ 55%] \x1b[32m\x1b[1mLinking CXX shared library libcommunication_protocol.so\x1b[0m\n'}
+[13.939391] (-) TimerEvent: {}
+[13.993910] (feetech_ros2_driver) StdoutLine: {'line': b'[ 55%] Built target communication_protocol\n'}
+[14.020125] (feetech_ros2_driver) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object feetech_driver/CMakeFiles/demo.dir/examples/demo.cpp.o\x1b[0m\n'}
+[14.020333] (feetech_ros2_driver) StdoutLine: {'line': b'[ 77%] \x1b[32mBuilding CXX object CMakeFiles/feetech_ros2_driver.dir/src/feetech_ros2_driver.cpp.o\x1b[0m\n'}
+[14.039536] (-) TimerEvent: {}
+[14.139839] (-) TimerEvent: {}
+[14.240109] (-) TimerEvent: {}
+[14.340517] (-) TimerEvent: {}
+[14.440903] (-) TimerEvent: {}
+[14.541274] (-) TimerEvent: {}
+[14.641680] (-) TimerEvent: {}
+[14.742075] (-) TimerEvent: {}
+[14.842457] (-) TimerEvent: {}
+[14.942748] (-) TimerEvent: {}
+[15.043064] (-) TimerEvent: {}
+[15.143421] (-) TimerEvent: {}
+[15.243700] (-) TimerEvent: {}
+[15.344037] (-) TimerEvent: {}
+[15.444419] (-) TimerEvent: {}
+[15.544676] (-) TimerEvent: {}
+[15.644971] (-) TimerEvent: {}
+[15.745305] (-) TimerEvent: {}
+[15.845594] (-) TimerEvent: {}
+[15.945877] (-) TimerEvent: {}
+[16.046280] (-) TimerEvent: {}
+[16.146660] (-) TimerEvent: {}
+[16.246982] (-) TimerEvent: {}
+[16.347404] (-) TimerEvent: {}
+[16.447769] (-) TimerEvent: {}
+[16.548125] (-) TimerEvent: {}
+[16.648589] (-) TimerEvent: {}
+[16.748965] (-) TimerEvent: {}
+[16.849299] (-) TimerEvent: {}
+[16.949622] (-) TimerEvent: {}
+[17.049944] (-) TimerEvent: {}
+[17.150331] (-) TimerEvent: {}
+[17.250673] (-) TimerEvent: {}
+[17.350996] (-) TimerEvent: {}
+[17.451395] (-) TimerEvent: {}
+[17.551715] (-) TimerEvent: {}
+[17.652053] (-) TimerEvent: {}
+[17.752466] (-) TimerEvent: {}
+[17.852789] (-) TimerEvent: {}
+[17.953126] (-) TimerEvent: {}
+[18.053499] (-) TimerEvent: {}
+[18.153833] (-) TimerEvent: {}
+[18.254167] (-) TimerEvent: {}
+[18.354543] (-) TimerEvent: {}
+[18.454964] (-) TimerEvent: {}
+[18.555430] (-) TimerEvent: {}
+[18.655808] (-) TimerEvent: {}
+[18.756151] (-) TimerEvent: {}
+[18.856437] (-) TimerEvent: {}
+[18.956750] (-) TimerEvent: {}
+[19.057083] (-) TimerEvent: {}
+[19.157355] (-) TimerEvent: {}
+[19.257628] (-) TimerEvent: {}
+[19.357948] (-) TimerEvent: {}
+[19.458279] (-) TimerEvent: {}
+[19.558556] (-) TimerEvent: {}
+[19.658900] (-) TimerEvent: {}
+[19.714775] (feetech_ros2_driver) StdoutLine: {'line': b'[ 88%] \x1b[32m\x1b[1mLinking CXX executable demo\x1b[0m\n'}
+[19.759008] (-) TimerEvent: {}
+[19.859412] (-) TimerEvent: {}
+[19.917841] (feetech_ros2_driver) StdoutLine: {'line': b'[ 88%] Built target demo\n'}
+[19.959534] (-) TimerEvent: {}
+[20.059832] (-) TimerEvent: {}
+[20.160137] (-) TimerEvent: {}
+[20.260635] (-) TimerEvent: {}
+[20.361068] (-) TimerEvent: {}
+[20.461564] (-) TimerEvent: {}
+[20.561863] (-) TimerEvent: {}
+[20.662134] (-) TimerEvent: {}
+[20.762502] (-) TimerEvent: {}
+[20.862782] (-) TimerEvent: {}
+[20.963142] (-) TimerEvent: {}
+[21.063607] (-) TimerEvent: {}
+[21.163997] (-) TimerEvent: {}
+[21.264320] (-) TimerEvent: {}
+[21.364624] (-) TimerEvent: {}
+[21.465005] (-) TimerEvent: {}
+[21.565313] (-) TimerEvent: {}
+[21.665612] (-) TimerEvent: {}
+[21.765912] (-) TimerEvent: {}
+[21.866208] (-) TimerEvent: {}
+[21.966528] (-) TimerEvent: {}
+[22.066870] (-) TimerEvent: {}
+[22.167176] (-) TimerEvent: {}
+[22.267462] (-) TimerEvent: {}
+[22.367768] (-) TimerEvent: {}
+[22.468058] (-) TimerEvent: {}
+[22.568356] (-) TimerEvent: {}
+[22.668674] (-) TimerEvent: {}
+[22.768972] (-) TimerEvent: {}
+[22.869282] (-) TimerEvent: {}
+[22.969568] (-) TimerEvent: {}
+[23.069882] (-) TimerEvent: {}
+[23.170182] (-) TimerEvent: {}
+[23.270590] (-) TimerEvent: {}
+[23.370892] (-) TimerEvent: {}
+[23.471225] (-) TimerEvent: {}
+[23.571577] (-) TimerEvent: {}
+[23.671865] (-) TimerEvent: {}
+[23.772193] (-) TimerEvent: {}
+[23.872476] (-) TimerEvent: {}
+[23.972712] (-) TimerEvent: {}
+[24.072985] (-) TimerEvent: {}
+[24.173324] (-) TimerEvent: {}
+[24.273602] (-) TimerEvent: {}
+[24.373879] (-) TimerEvent: {}
+[24.474156] (-) TimerEvent: {}
+[24.574430] (-) TimerEvent: {}
+[24.674747] (-) TimerEvent: {}
+[24.775032] (-) TimerEvent: {}
+[24.875317] (-) TimerEvent: {}
+[24.975598] (-) TimerEvent: {}
+[25.075859] (-) TimerEvent: {}
+[25.176173] (-) TimerEvent: {}
+[25.276534] (-) TimerEvent: {}
+[25.376847] (-) TimerEvent: {}
+[25.477291] (-) TimerEvent: {}
+[25.577607] (-) TimerEvent: {}
+[25.677898] (-) TimerEvent: {}
+[25.778190] (-) TimerEvent: {}
+[25.878528] (-) TimerEvent: {}
+[25.978814] (-) TimerEvent: {}
+[26.079107] (-) TimerEvent: {}
+[26.179454] (-) TimerEvent: {}
+[26.258191] (feetech_ros2_driver) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library libfeetech_ros2_driver.so\x1b[0m\n'}
+[26.279576] (-) TimerEvent: {}
+[26.379916] (-) TimerEvent: {}
+[26.480314] (-) TimerEvent: {}
+[26.580671] (-) TimerEvent: {}
+[26.681014] (-) TimerEvent: {}
+[26.781346] (-) TimerEvent: {}
+[26.881629] (-) TimerEvent: {}
+[26.981991] (-) TimerEvent: {}
+[27.082306] (-) TimerEvent: {}
+[27.182570] (-) TimerEvent: {}
+[27.282881] (-) TimerEvent: {}
+[27.317844] (feetech_ros2_driver) StdoutLine: {'line': b'[100%] Built target feetech_ros2_driver\n'}
+[27.332127] (feetech_ros2_driver) CommandEnded: {'returncode': 0}
+[27.332914] (feetech_ros2_driver) JobProgress: {'identifier': 'feetech_ros2_driver', 'progress': 'install'}
+[27.333808] (feetech_ros2_driver) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver'], 'cwd': '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'yundali'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/yundali'), ('OLDPWD', '/home/yundali/Arm_Project_WS/src/feetech_ros2_driver'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('SYSTEMD_EXEC_PID', '2010'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'yundali'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'yundali'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/yundali/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/yundali-P65xRP:@/tmp/.ICE-unix/1982,unix/yundali-P65xRP:/tmp/.ICE-unix/1982'), ('XDG_MENU_PREFIX', 'gnome-'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/e6c9242d_2c52_4948_ad72_d8f386970417'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en.US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.93'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/yundali/Arm_Project_WS/install/soarm_scripts:/home/yundali/Arm_Project_WS/install/soarm_description:/home/yundali/Arm_Project_WS/install/soarm_controller:/opt/ros/humble')]), 'shell': False}
+[27.343209] (feetech_ros2_driver) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[27.343870] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libserial_port.so.0.1.0\n'}
+[27.345009] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libserial_port.so.0\n'}
+[27.345321] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libserial_port.so\n'}
+[27.345567] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libcommunication_protocol.so.0.1.0\n'}
+[27.345949] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libcommunication_protocol.so.0\n'}
+[27.346628] (feetech_ros2_driver) StdoutLine: {'line': b'-- Set runtime path of "/home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libcommunication_protocol.so.0.1.0" to ""\n'}
+[27.346869] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libcommunication_protocol.so\n'}
+[27.347089] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/bin/demo\n'}
+[27.349326] (feetech_ros2_driver) StdoutLine: {'line': b'-- Set runtime path of "/home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/bin/demo" to ""\n'}
+[27.349767] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/cmake/feetech_driver/feetech_driver-config.cmake\n'}
+[27.350034] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/cmake/feetech_driver/feetech_driver-config-version.cmake\n'}
+[27.350184] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/cmake/feetech_driver/feetech_driver-targets.cmake\n'}
+[27.350459] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/cmake/feetech_driver/feetech_driver-targets-noconfig.cmake\n'}
+[27.350876] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/feetech_ros2_control_plugin_description.xml\n'}
+[27.351064] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libfeetech_ros2_driver.so\n'}
+[27.354005] (feetech_ros2_driver) StdoutLine: {'line': b'-- Set runtime path of "/home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libfeetech_ros2_driver.so" to ""\n'}
+[27.354253] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/include/feetech_ros2_driver\n'}
+[27.354503] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/include/feetech_ros2_driver/feetech_ros2_driver\n'}
+[27.354577] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/include/feetech_ros2_driver/feetech_ros2_driver/feetech_ros2_driver.hpp\n'}
+[27.354818] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/library_path.sh\n'}
+[27.355025] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/library_path.dsv\n'}
+[27.355192] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/include/feetech_ros2_driver/feetech_ros2_driver/version.hpp\n'}
+[27.355449] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/ament_index/resource_index/package_run_dependencies/feetech_ros2_driver\n'}
+[27.355680] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/ament_index/resource_index/parent_prefix_path/feetech_ros2_driver\n'}
+[27.355900] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/ament_prefix_path.sh\n'}
+[27.356059] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/ament_prefix_path.dsv\n'}
+[27.356269] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/path.sh\n'}
+[27.356532] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/path.dsv\n'}
+[27.357036] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/local_setup.bash\n'}
+[27.357135] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/local_setup.sh\n'}
+[27.357353] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/local_setup.zsh\n'}
+[27.357684] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/local_setup.dsv\n'}
+[27.357858] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/package.dsv\n'}
+[27.358062] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/ament_index/resource_index/packages/feetech_ros2_driver\n'}
+[27.358246] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/feetech_ros2_driver\n'}
+[27.358369] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/feetech_ros2_driverTargetsExport.cmake\n'}
+[27.358588] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/feetech_ros2_driverTargetsExport-noconfig.cmake\n'}
+[27.358798] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[27.359004] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[27.359232] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/feetech_ros2_driverConfig.cmake\n'}
+[27.359452] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/feetech_ros2_driverConfig-version.cmake\n'}
+[27.359625] (feetech_ros2_driver) StdoutLine: {'line': b'-- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/package.xml\n'}
+[27.361948] (feetech_ros2_driver) CommandEnded: {'returncode': 0}
+[27.383118] (-) TimerEvent: {}
+[27.385575] (feetech_ros2_driver) JobEnded: {'identifier': 'feetech_ros2_driver', 'rc': 0}
+[27.386926] (-) EventReactorShutdown: {}

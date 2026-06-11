@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="soarm"> 
+    <xacro:macro name="soarm_gazebo" params="is_sim">
+    
+        <xacro:if value="${is_sim}">
+            <gazebo>
+                <!--For newer versions of ROS2-->
+                <plugin filename="gz_ros2_control-system" name="gz_ros2_control::GazeboSimROS2ControlPlugin">
+                    <!--Configure later in YAML files-->
+                    <robot_param>robot_description</robot_param>
+                    <robot_param_node>robot_state_publisher</robot_param_node>
+                    <parameters>$(find soarm_controller)/config/soarm_controllers.yaml</parameters>
+                </plugin>
+            </gazebo>
+
+        </xacro:if>
+
+    </xacro:macro>
+
+</robot>

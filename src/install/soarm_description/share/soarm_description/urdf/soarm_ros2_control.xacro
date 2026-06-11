@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="so101"> 
+
+    <xacro:property name="PI" value="3.14159"/>
+
+    <!-- Test with bypassing Gazebo Plugins -->
+    <!-- <hardware>
+        <plugin>mock_components/GenericSystem</plugin>
+    </hardware> -->
+
+    <!-- ros2_control Gazebo -->
+    <xacro:if value="$(arg is_sim)">
+        <hardware>
+            <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+        </hardware>
+
+    </xacro:if>
+
+    <!-- ros2_control Real Robot -->
+    <xacro:unless value="$(arg is_sim)">
+        <hardware>
+            <plugin>arduinobot_controller/ArduinobotInterface</plugin>
+            <param name="port">/dev/ttyACM0</param>
+        </hardware>
+    </xacro:unless>
+
+    <ros2_control>
+
+        <joint name="gripper_joint">
+            <!--Send commands to hardware-->
+            <command_interface name="position">
+                <param name="min">-0.174533</param>
+                <param name="max">0.174533</param>
+
+            </command_interface>
+            <!--Read Feedback from hardware-->
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+
+        </joint>
+
+        <joint name="wrist_roll">
+            <command_interface name="position">
+                <param name="min">-${7*PI/8}</param>
+                <param name="max">${7*PI/8}</param>
+
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+
+        </joint>
+
+        <joint name="wrist_flex">
+            <command_interface name="position">
+                <param name="min">-${PI/2}</param>
+                <param name="max">${PI/2}</param>
+
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+
+        </joint>
+
+        <joint name="elbow_flex">
+            <command_interface name="position">
+                <param name="min">-${PI/2}</param>
+                <param name="max">${PI/2}</param>
+
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+
+        </joint>
+
+        <joint name="shoulder_lift">
+            <command_interface name="position">
+            <param name="min">-${PI/2}</param>
+            <param name="max">${PI/2}</param>
+
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+
+        </joint>
+
+        <joint name="shoulder_pan">
+            <command_interface name="position">
+            <param name="min">-${PI/2}</param>
+            <param name="max">${PI/2}</param>
+
+            </command_interface>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+
+        </joint>
+
+
+    </ros2_control>
+
+</robot>

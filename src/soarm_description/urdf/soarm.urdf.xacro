@@ -1,9 +1,20 @@
 <?xml version="1.0" ?>
 <!-- Generated using onshape-to-robot -->
 <!-- Onshape https://cad.onshape.com/documents/7715cc284bb430fe6dab4ffd/w/4fd0791b683777b02f8d975a/e/826c553ede3b7592eb9ca800 -->
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="so100">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="soarm">
+
+  <xacro:arg name="is_sim" default="true"/>
+
+  <xacro:include filename="$(find soarm_description)/urdf/soarm_ros2_control.xacro"/>
+  <xacro:include filename="$(find soarm_description)/urdf/soarm_gazebo.xacro"/>
+
+  <xacro:soarm_ros2_control is_sim="$(arg is_sim)"/>
+  <xacro:soarm_gazebo is_sim="$(arg is_sim)"/>
 
   <xacro:property name="PI" value="3.14159"/>
+  <!-- Servo Steps converted to Radians -->
+  <xacro:property name="RAD_CONV" value = "0.001533979"/>
+
   <!-- Link base -->
   <link name="base">
     <inertial>
@@ -14,7 +25,7 @@
     <!-- Part Base_motor_holder_SO101 -->
     <visual>
     <!--       <origin xyz="-0.00636471 -9.94414e-05 -0.0024" rpy="1.5708 -1.67685e-15 1.5708"/> -->
-      <origin xyz="0 0 0" rpy="1.5708 -0 1.5708"/>
+      <origin xyz="0 0 0" rpy="1.5708 0 1.5708"/>
       <geometry>
         <mesh filename="package://soarm_description/meshes/Base_motor_holder_SO101.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -45,25 +56,9 @@
         <mesh filename="package://soarm_description/meshes/Base_SO101.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
-    <!-- Part sts3215_03a_v1
-    <visual>
-      <origin xyz="-0.136702 -0.168068 0.0761817" rpy="-8.21148e-16 7.84513e-18 1.249e-15"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-      <material name="sts3215_03a_v1_material">
-        <color rgba="0.627451 0.627451 0.627451 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.136702 -0.168068 0.0761817" rpy="-8.21148e-16 7.84513e-18 1.249e-15"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-    </collision> -->
     <!-- Part WaveShare_Mounting_Plate_SO101 -->
     <visual>
-      <origin xyz="-0.0309827 -0.000199441 0.0474" rpy="1.5708 -1.35493e-14 1.5708"/>
+      <origin xyz="-0.0309827 -0.000199441 0.0474" rpy="1.5708 0 1.5708"/>
       <geometry>
         <mesh filename="package://soarm_description/meshes/WaveShare_Mounting_Plate_SO101.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -72,15 +67,15 @@
       </material>
     </visual>
     <collision>
-      <origin xyz="-0.0309827 -0.000199441 0.0474" rpy="1.5708 -1.35493e-14 1.5708"/>
+      <origin xyz="-0.0309827 -0.000199441 0.0474" rpy="1.5708 0 1.5708"/>
       <geometry>
         <mesh filename="package://soarm_description/meshes/WaveShare_Mounting_Plate_SO101.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
-  <!-- Frame baseframe (dummy link + fixed joint) -->
+  <!-- Frame baseframe (dummy link + fixed joint) | is this world? -->
   <link name="baseframe">
-    <origin xyz="0 0 0" rpy="0 -0 0"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <mass value="1e-9"/>
@@ -101,38 +96,6 @@
       <mass value="0.100006"/>
       <inertia ixx="8.3759e-05" ixy="7.55525e-08" ixz="-1.16342e-06" iyy="8.10403e-05" iyz="1.54663e-07" izz="2.39783e-05"/>
     </inertial>
-    <!-- Part sts3215_03a_v1_2 -->
-    <!-- <visual>
-      <origin xyz="-0.0303992 0.000422241 -0.0417" rpy="1.5708 1.5708 0"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-      <material name="sts3215_03a_v1_2_material">
-        <color rgba="0.627451 0.627451 0.627451 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0303992 0.000422241 -0.0417" rpy="1.5708 1.5708 0"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-    </collision> -->
-    <!-- Part Motor_holder_SO101_Base -->
-    <!-- <visual>
-      <origin xyz="-0.0675992 0.45 0.0158499" rpy="1.5708 -1.5708 0"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/Motor_holder_SO101_Base.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="Motor_holder_SO101_Base_material">
-        <color rgba="0.964706 0.964706 0.952941 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0675992 0.45 0.0158499" rpy="1.5708 -1.5708 0"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/Motor_holder_SO101_Base.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </collision> -->
     <!-- Part Rotation_Pitch_SO101 -->
     <visual>      
 <!--       <origin xyz="0.0122008 2.22413e-05 0.0464" rpy="-1.5708 2.35221e-33 0"/> -->
@@ -158,22 +121,6 @@
       <mass value="0.103"/>
       <inertia ixx="4.08002e-05" ixy="-1.97819e-05" ixz="-4.03016e-08" iyy="0.000147318" iyz="8.97326e-09" izz="0.000142487"/>
     </inertial>
-    <!-- Part sts3215_03a_v1_3 -->
-    <!-- <visual>
-      <origin xyz="-0.11257 -0.0155 0.0187" rpy="-3.14159 -5.27356e-16 -1.5708"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-      <material name="sts3215_03a_v1_3_material">
-        <color rgba="0.627451 0.627451 0.627451 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.11257 -0.0155 0.0187" rpy="-3.14159 -5.27356e-16 -1.5708"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-    </collision> -->
     <!-- Part Upper_arm_SO101 -->
     <visual>
       <!--       <origin xyz="-0.065085 0.012 0.0182" rpy="3.14159 -0 -1.30911e-30"/> -->
@@ -198,11 +145,14 @@
       <origin xyz="-0.0980701 0.00324376 0.0182831" rpy="0 0 0"/>
       <mass value="0.104"/>
       <inertia ixx="2.87438e-05" ixy="7.41152e-06" ixz="1.26409e-06" iyy="0.000159844" iyz="-4.90188e-08" izz="0.00014529"/>
+<!-- 
+      <mass value="1.04"/>
+      <inertia ixx="2.87438e-04" ixy="7.41152e-05" ixz="1.26409e-05" iyy="0.00159844" iyz="-4.90188e-07" izz="0.0014529"/> -->
     </inertial>
     <!-- Part Under_arm_SO101 -->
     <visual>
         <!-- <origin xyz="-0.0648499 -0.032 0.0182" rpy="3.14159 -0 6.67202e-31"/> -->
-      <origin xyz="-0.0648499 -0.032 0" rpy="3.14159 -0 0"/>
+      <origin xyz="-0.0648499 -0.032 0" rpy="3.14159 0 0"/>
       <geometry>
         <mesh filename="package://soarm_description/meshes/Under_arm_SO101.stl" scale="0.001 0.001 0.001"/>
       </geometry>
@@ -212,43 +162,20 @@
     </visual>
     <collision>
     <!--       <origin xyz="-0.0648499 -0.032 0.0182" rpy="3.14159 -0 6.67202e-31"/> -->
-      <origin xyz="-0.0648499 -0.032 0" rpy="3.14159 -0 0"/>
+      <origin xyz="-0.0648499 -0.032 0" rpy="3.14159 0 0"/>
       <geometry>
         <mesh filename="package://soarm_description/meshes/Under_arm_SO101.stl" scale="0.001 0.001 0.001"/>
       </geometry>
+    <!-- Troubleshoot with simple box -->
+      <!-- <origin xyz="-0.0648499 -0.032 0" rpy="3.14159 0 0"/>
+      <geometry>
+        <box size="0.5 0.1 0.1"/> 
+      </geometry> -->
     </collision>
-    <!-- Part Motor_holder_SO101_Wrist -->
-    <!-- <visual>
-      <origin xyz="-0.0648499 -0.032 0.018" rpy="-3.14159 -2.55351e-15 -2.56146e-31"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/Motor_holder_SO101_Wrist.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-      <material name="Motor_holder_SO101_Wrist_material">
-        <color rgba="0.964706 0.964706 0.952941 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.0648499 -0.032 0.018" rpy="-3.14159 -2.55351e-15 -2.56146e-31"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/Motor_holder_SO101_Wrist.stl" scale="0.001 0.001 0.001"/>
-      </geometry>
-    </collision> -->
-    <!-- Part sts3215_03a_v1_4 -->
-    <!-- <visual>
-      <origin xyz="-0.1224 0.0052 0.0187" rpy="-3.14159 -7.88861e-31 -3.14159"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-      <material name="sts3215_03a_v1_4_material">
-        <color rgba="0.627451 0.627451 0.627451 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="-0.1224 0.0052 0.0187" rpy="-3.14159 -7.88861e-31 -3.14159"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-    </collision> -->
+    <gazebo reference="lower_arm">
+      <self_collide>true</self_collide>
+      <disableFixedJointLumping>true</disableFixedJointLumping>
+    </gazebo>
   </link> 
   <!-- Link wrist -->
   <link name="wrist">
@@ -257,22 +184,6 @@
       <mass value="0.079"/>
       <inertia ixx="3.68263e-05" ixy="1.7893e-08" ixz="-5.28128e-08" iyy="2.5391e-05" iyz="3.6412e-06" izz="2.1e-05"/>
     </inertial>
-    <!-- Part sts3215_03a_no_horn_v1 -->
-    <!-- <visual>
-      <origin xyz="5.55112e-17 -0.0424 0.0306" rpy="1.5708 1.5708 0"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_no_horn_v1.stl"/>
-      </geometry>
-      <material name="sts3215_03a_no_horn_v1_material">
-        <color rgba="0.627451 0.627451 0.627451 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="5.55112e-17 -0.0424 0.0306" rpy="1.5708 1.5708 0"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_no_horn_v1.stl"/>
-      </geometry>
-    </collision> -->
     <!-- Part Wrist_Roll_Pitch_SO101 -->
     <visual>
       <!--<origin xyz="0 -0.028 0.0181" rpy="-1.5708 -1.5708 0"/> -->
@@ -299,22 +210,6 @@
       <mass value="0.087"/>
       <inertia ixx="2.75087e-05" ixy="-3.35241e-07" ixz="-5.7352e-06" iyy="4.33657e-05" iyz="-5.17847e-08" izz="3.45059e-05"/>
     </inertial>
-    <!-- Part sts3215_03a_v1_5 -->
-    <!-- <visual>
-      <origin xyz="0.0077 0.0001 -0.0234" rpy="-1.5708 -5.19179e-17 -1.66533e-16"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-      <material name="sts3215_03a_v1_5_material">
-        <color rgba="0.627451 0.627451 0.627451 1.0"/>
-      </material>
-    </visual>
-    <collision>
-      <origin xyz="0.0077 0.0001 -0.0234" rpy="-1.5708 -5.19179e-17 -1.66533e-16"/>
-      <geometry>
-        <mesh filename="package://soarm_description/meshes/sts3215_03a_v1.stl"/>
-      </geometry>
-    </collision> -->
     <!-- Part Wrist_Roll_Follower_SO101 -->
     <visual>
       <origin xyz="0 0 0" rpy="-3.14159 0 0"/>
@@ -354,7 +249,7 @@
       <mass value="0.012"/>
       <inertia ixx="6.61427e-06" ixy="-3.19807e-07" ixz="-5.90717e-09" iyy="1.89032e-06" iyz="-1.09945e-07" izz="5.28738e-06"/>
     </inertial>
-    <!-- Part Moving_Jaw_SO101 -->
+    <!-- Part Moving_Jaw_SO101, should be 0 0 0-->
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
@@ -371,13 +266,24 @@
       </geometry>
     </collision>
   </link>
+
+  <!-- Need fixed joint to "world" link to prevent robot from falling over in Gazebo -->
+  <link name="world"/>
+
+  <joint name="virtual_joint" type="fixed">
+    <parent link="world"/>
+    <child link="base"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
   <!-- Joint from gripper to Moving_Jaw_SO101 -->
-  <joint name="gripper" type="revolute">
-    <origin xyz="0.0202 0 -0.0234" rpy="1.5708 -5.24284e-08 -1.41553e-15"/>
+  <joint name="gripper_joint" type="revolute">
+    <origin xyz="0.0202 0 -0.0234" rpy="1.5708 0 0"/>
     <parent link="gripper"/>
     <child link="Moving_Jaw_SO101"/>
     <axis xyz="0 0 1"/>
     <limit effort="10" velocity="10" lower="-0.174533" upper="1.74533"/>
+    <!-- <limit effort="10" velocity="10" lower="${1300*RAD_CONV}" upper="${2800*RAD_CONV}"/> -->
   </joint>
   <!-- Joint from wrist to gripper -->
   <joint name="wrist_roll" type="revolute">
@@ -385,7 +291,8 @@
     <parent link="wrist"/>
     <child link="gripper"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-2.74385" upper="2.84121"/>
+    <limit effort="10" velocity="10" lower="${-7*PI/8}" upper="${7*PI/8}"/>
+    <!-- <limit effort="10" velocity="10" lower="${430*RAD_CONV}" upper="${4070*RAD_CONV}"/> -->
   </joint>
   <!-- Joint from lower_arm to wrist -->
   <joint name="wrist_flex" type="revolute">
@@ -393,7 +300,9 @@
     <parent link="lower_arm"/>
     <child link="wrist"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-1.65806" upper="1.65806"/>
+    <limit effort="10" velocity="10" lower="-1.2" upper="1.2"/>
+    <!-- <limit effort="10" velocity="10" lower="${-PI/2}" upper="${PI/2}"/> -->
+    <!-- <limit effort="10" velocity="10" lower="${430*RAD_CONV}" upper="${2750*RAD_CONV}"/> -->
   </joint>
   <!-- Joint from upper_arm to lower_arm -->
   <joint name="elbow_flex" type="revolute">
@@ -401,24 +310,29 @@
     <parent link="upper_arm"/>
     <child link="lower_arm"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-1.74533" upper="1.5708"/>
+    <limit effort="10" velocity="10" lower="${-PI}" upper="0"/>
+    <!-- <limit effort="10" velocity="10" lower="${-5*PI/9}" upper="${PI/2}"/> -->
+    <!-- <limit effort="10" velocity="10" lower="${500*RAD_CONV}" upper="${2600*RAD_CONV}"/> -->
   </joint>
   <!-- Joint from shoulder to upper_arm -->
   <joint name="shoulder_lift" type="revolute">
 <!-- <origin xyz="-0.0303992 -0.0182778 -0.0542" rpy="-1.5708 -1.5708 0"/> -->
-    <origin xyz="-0.03138 0 -0.072" rpy="-1.5708 -1.5708 0"/>
+    <origin xyz="-0.03138 0 -0.072" rpy="${-PI/2} ${-PI/2} 0"/>
     <parent link="shoulder"/>
     <child link="upper_arm"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-1.74533" upper="1.74533"/>
+    <limit effort="10" velocity="10" lower="-0.3" upper="${PI}"/>
+    <!-- <limit effort="10" velocity="10" lower="${-5*PI/9}" upper="${5*PI/9}"/> -->
+    <!-- <limit effort="10" velocity="10" lower="${850*RAD_CONV}" upper="${3500*RAD_CONV}"/> -->
   </joint>
   <!-- Joint from base to shoulder -->
   <joint name="shoulder_pan" type="revolute">
     <!-- Y+.45 Z <origin xyz="-0.124202 -0.168068 0.0948817" rpy="3.14159 4.18253e-17 -3.14159"/> -->
-    <origin xyz="0.04572 0 0.048" rpy="3.14159 0 -3.14159"/>
+    <origin xyz="0.04572 0 0.048" rpy="${PI} 0 ${-PI}"/>
     <parent link="base"/>
     <child link="shoulder"/>
     <axis xyz="0 0 1"/>
-    <limit effort="10" velocity="10" lower="-1.91986" upper="1.91986"/>
+    <limit effort="10" velocity="10" lower="${-3*PI/5}" upper="${3*PI/5}"/>
+    <!-- <limit effort="10" velocity="10" lower="${1130*RAD_CONV)" upper="(3730*RAD_CONV)"/> -->
   </joint>
 </robot>

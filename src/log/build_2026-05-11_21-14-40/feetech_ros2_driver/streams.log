@@ -1,0 +1,53 @@
+[0.015s] Invoking command in '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver -- -j8 -l8
+[0.065s] [35m[1mConsolidate compiler generated dependencies of target serial_port[0m
+[0.079s] [ 11%] Built target ament_generate_version_header__feetech_ros2_driver
+[0.088s] [ 33%] Built target serial_port
+[0.100s] [35m[1mConsolidate compiler generated dependencies of target communication_protocol[0m
+[0.124s] [ 55%] Built target communication_protocol
+[0.138s] [35m[1mConsolidate compiler generated dependencies of target demo[0m
+[0.138s] [35m[1mConsolidate compiler generated dependencies of target feetech_ros2_driver[0m
+[0.161s] [ 77%] Built target demo
+[0.167s] [100%] Built target feetech_ros2_driver
+[0.182s] Invoked command in '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver -- -j8 -l8
+[0.194s] Invoking command in '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver
+[0.203s] -- Install configuration: ""
+[0.204s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libserial_port.so.0.1.0
+[0.204s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libserial_port.so.0
+[0.204s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libserial_port.so
+[0.204s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libcommunication_protocol.so.0.1.0
+[0.204s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libcommunication_protocol.so.0
+[0.205s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libcommunication_protocol.so
+[0.205s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/bin/demo
+[0.206s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/cmake/feetech_driver/feetech_driver-config.cmake
+[0.206s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/cmake/feetech_driver/feetech_driver-config-version.cmake
+[0.206s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/cmake/feetech_driver/feetech_driver-targets.cmake
+[0.206s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/cmake/feetech_driver/feetech_driver-targets-noconfig.cmake
+[0.206s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/feetech_ros2_control_plugin_description.xml
+[0.207s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/lib/libfeetech_ros2_driver.so
+[0.207s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/include/feetech_ros2_driver
+[0.207s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/include/feetech_ros2_driver/feetech_ros2_driver
+[0.207s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/include/feetech_ros2_driver/feetech_ros2_driver/feetech_ros2_driver.hpp
+[0.208s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/library_path.sh
+[0.208s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/library_path.dsv
+[0.208s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/include/feetech_ros2_driver/feetech_ros2_driver/version.hpp
+[0.208s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/ament_index/resource_index/package_run_dependencies/feetech_ros2_driver
+[0.208s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/ament_index/resource_index/parent_prefix_path/feetech_ros2_driver
+[0.209s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/ament_prefix_path.sh
+[0.209s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/ament_prefix_path.dsv
+[0.209s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/path.sh
+[0.209s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/environment/path.dsv
+[0.209s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/local_setup.bash
+[0.209s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/local_setup.sh
+[0.209s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/local_setup.zsh
+[0.209s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/local_setup.dsv
+[0.210s] -- Installing: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/package.dsv
+[0.210s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/ament_index/resource_index/packages/feetech_ros2_driver
+[0.210s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/ament_index/resource_index/hardware_interface__pluginlib__plugin/feetech_ros2_driver
+[0.211s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/feetech_ros2_driverTargetsExport.cmake
+[0.211s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/feetech_ros2_driverTargetsExport-noconfig.cmake
+[0.212s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/ament_cmake_export_targets-extras.cmake
+[0.212s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/ament_cmake_export_dependencies-extras.cmake
+[0.212s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/feetech_ros2_driverConfig.cmake
+[0.213s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/cmake/feetech_ros2_driverConfig-version.cmake
+[0.213s] -- Up-to-date: /home/yundali/Arm_Project_WS/src/install/feetech_ros2_driver/share/feetech_ros2_driver/package.xml
+[0.213s] Invoked command in '/home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/yundali/Arm_Project_WS/src/build/feetech_ros2_driver
