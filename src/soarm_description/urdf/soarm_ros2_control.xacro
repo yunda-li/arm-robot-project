@@ -3,18 +3,12 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="soarm"> 
 
     <!-- Wrap everything in a macro -->
-    <xacro:macro name="soarm_ros2_control" params="is_sim">
-        <xacro:arg name="is_sim" default="true" />
-        <!-- Convert arg into property -->
-        <xacro:property name="is_sim_prop" value="$(arg is_sim)"/>
+    <xacro:arg name="is_sim" default="true" />
 
+    <xacro:macro name="soarm_ros2_control" params="is_sim">
+        <xacro:property name="is_sim_prop" value="$(arg is_sim)"/>
         <xacro:property name="PI" value="3.14159"/>
         <xacro:property name="RAD_CONV" value="0.001533979"/>
-
-        <!-- Test with bypassing Gazebo Plugins -->
-        <!-- <hardware>
-            <plugin>mock_components/GenericSystem</plugin>
-        </hardware> -->
 
         <ros2_control name="SO_ARM101" type="system">
             <!-- ros2_control Gazebo -->
@@ -29,16 +23,28 @@
             <xacro:unless value="${is_sim_prop}">
                 <hardware>
                     <plugin>feetech_ros2_driver/FeetechHardwareInterface</plugin>
-                    <param name="port">/dev/ttyACM0</param>
+                    <param name="usb_port">/dev/ttyACM0</param>
+                    <param name="baud_rate">1000000</param>
                 </hardware>
             </xacro:unless>
 
             <joint name="gripper_joint">
+                <xacro:unless value="${is_sim_prop}">
+                    <param name="initial_position">0</param>
+                    <param name="id">12</param>
+                    <param name="p_cofficient">32</param>
+                    <!-- <param name="offset">0</param> -->
+                </xacro:unless>
                 <!--Send commands to hardware-->
                 <command_interface name="position">
-                    <param name="min">-0.174533</param>
-                    <param name="max">0.174533</param>
-
+                    <xacro:if value="${is_sim_prop}">
+                        <param name="min">-0.174533</param>
+                        <param name="max">0.174533</param>
+                    </xacro:if>
+                    <xacro:unless value="${is_sim_prop}">
+                        <param name="min">${1300*RAD_CONV}</param>
+                        <param name="max">${2800*RAD_CONV}</param>
+                    </xacro:unless>
                 </command_interface>
                 <!--Read Feedback from hardware-->
                 <state_interface name="position"/>
@@ -47,9 +53,21 @@
             </joint>
 
             <joint name="wrist_roll">
+                <xacro:unless value="${is_sim_prop}">
+                    <param name="initial_position">0</param>
+                    <param name="id">11</param>
+                    <param name="p_cofficient">32</param>
+                    <!-- <param name="offset">0</param> -->
+                </xacro:unless>
                 <command_interface name="position">
-                    <param name="min">${-7*PI/8}</param>
-                    <param name="max">${7*PI/8}</param>
+                    <xacro:if value="${is_sim_prop}">
+                        <param name="min">${-7*PI/8}</param>
+                        <param name="max">${7*PI/8}</param>
+                    </xacro:if>
+                    <xacro:unless value="${is_sim_prop}">
+                        <param name="min">${430*RAD_CONV}</param>
+                        <param name="max">${4070*RAD_CONV}</param>
+                    </xacro:unless>
                 </command_interface>
 
                 <state_interface name="position"/>
@@ -57,11 +75,21 @@
             </joint>
 
             <joint name="wrist_flex">
+                <xacro:unless value="${is_sim_prop}">
+                    <param name="initial_position">0</param>
+                    <param name="id">10</param>
+                    <param name="p_cofficient">32</param>
+                    <!-- <param name="offset">0</param> -->
+                </xacro:unless>
                 <command_interface name="position">
-                    <!-- <param name="min">${-PI/2}</param>
-                    <param name="max">${PI/2}</param> -->
-                    <param name="min">-1.2</param>
-                    <param name="max">1.2</param>
+                    <xacro:if value="${is_sim_prop}">
+                        <param name="min">-1.2</param>
+                        <param name="max">1.2</param>
+                    </xacro:if>
+                    <xacro:unless value="${is_sim_prop}">
+                        <param name="min">${1200*RAD_CONV}</param>
+                        <param name="max">${3200*RAD_CONV}</param>
+                    </xacro:unless>
                 </command_interface>
 
                 <state_interface name="position"/>
@@ -69,11 +97,21 @@
             </joint>
 
             <joint name="elbow_flex">
+                <xacro:unless value="${is_sim_prop}">
+                    <param name="initial_position">0</param>
+                    <param name="id">9</param>
+                    <param name="p_cofficient">32</param>
+                    <!-- <param name="offset">0</param> -->
+                </xacro:unless>
                 <command_interface name="position">
-                    <!-- <param name="min">${-5*PI/9}</param>
-                    <param name="max">${PI/2}</param> -->
-                    <param name="min">${-PI}</param>
-                    <param name="max">0</param>
+                    <xacro:if value="${is_sim_prop}">
+                        <param name="min">${-PI}</param>
+                        <param name="max">0</param>
+                    </xacro:if>
+                    <xacro:unless value="${is_sim_prop}">
+                        <param name="min">${500*RAD_CONV}</param>
+                        <param name="max">${2600*RAD_CONV}</param>
+                    </xacro:unless>
                 </command_interface>
 
                 <state_interface name="position"/>
@@ -81,11 +119,21 @@
             </joint>
 
             <joint name="shoulder_lift">
+                <xacro:unless value="${is_sim_prop}">
+                    <param name="initial_position">0</param>
+                    <param name="id">8</param>
+                    <param name="p_cofficient">32</param>
+                    <!-- <param name="offset">0</param> -->
+                </xacro:unless>
                 <command_interface name="position">
-                    <!-- <param name="min">${-5*PI/9}</param>
-                    <param name="max">${5*PI/9}</param> -->
-                    <param name="min">-0.3</param>
-                    <param name="max">${PI}</param>
+                    <xacro:if value="${is_sim_prop}">
+                        <param name="min">-0.3</param>
+                        <param name="max">${PI}</param>
+                    </xacro:if>
+                    <xacro:unless value="${is_sim_prop}">
+                        <param name="min">${850*RAD_CONV}</param>
+                        <param name="max">${3500*RAD_CONV}</param>
+                    </xacro:unless>
                 </command_interface>
 
                 <state_interface name="position"/>
@@ -93,9 +141,21 @@
             </joint>
 
             <joint name="shoulder_pan">
+                <xacro:unless value="${is_sim_prop}">
+                    <param name="initial_position">0</param>
+                    <param name="id">7</param>
+                    <param name="p_cofficient">32</param>
+                    <!-- <param name="offset">0</param> -->
+                </xacro:unless>
                 <command_interface name="position">
-                    <param name="min">${-3*PI/5}</param>
-                    <param name="max">${3*PI/5}</param>
+                    <xacro:if value="${is_sim_prop}">
+                        <param name="min">${-3*PI/5}</param>
+                        <param name="max">${3*PI/5}</param>
+                    </xacro:if>
+                    <xacro:unless value="${is_sim_prop}">
+                        <param name="min">${1130*RAD_CONV}</param>
+                        <param name="max">${3730*RAD_CONV}</param>
+                    </xacro:unless>
                 </command_interface>
 
                 <state_interface name="position"/>
