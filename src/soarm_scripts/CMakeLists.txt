@@ -8,6 +8,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(rclcpp_lifecycle REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(trajectory_msgs REQUIRED)
 find_package(urdf REQUIRED)
@@ -18,7 +19,10 @@ find_package(rcl_interfaces REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 
 add_executable(joint_tester src/joint_tester.cpp)
-ament_target_dependencies(joint_tester rclcpp std_msgs trajectory_msgs urdf)
+ament_target_dependencies(joint_tester rclcpp std_msgs trajectory_msgs urdf kdl_parser)
+
+add_executable(joint_sweeper src/joint_sweeper.cpp)
+ament_target_dependencies(joint_sweeper rclcpp rclcpp_lifecycle std_msgs trajectory_msgs urdf)
 
 # Include directories (Crucial for KDL headers to resolve)
 target_include_directories(joint_tester PRIVATE
@@ -33,9 +37,11 @@ target_link_libraries(joint_tester
 )
 
 install(TARGETS
-  joint_tester
+  joint_tester joint_sweeper
   DESTINATION lib/${PROJECT_NAME}
 )
+
+
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

@@ -345,10 +345,6 @@ class JointTester : public rclcpp::Node
 
         }
 
-        void sleepTimerCallback(){
-            RCLCPP_INFO(this->get_logger(), "...Sleeping...");
-        }
-
         void timerCallback(){
             pullJointLimits();
             jointSweep();
