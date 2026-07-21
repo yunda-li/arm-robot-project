@@ -9,11 +9,15 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
+find_package(rclcpp_action REQUIRED)
+find_package(rclcpp_components REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(trajectory_msgs REQUIRED)
 find_package(urdf REQUIRED)
 find_package(orocos_kdl REQUIRED)
 find_package(kdl_parser REQUIRED)
+find_package(soarm_msgs REQUIRED)
+
 
 find_package(rcl_interfaces REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
@@ -36,10 +40,69 @@ target_link_libraries(joint_tester
   ${orocos_kdl_LIBRARIES}
 )
 
+
+
+add_library(pick_place_server SHARED
+  src/pick_place_server.cpp
+)
+ 
+target_include_directories(pick_place_server PRIVATE
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+
+add_library(pick_place_client SHARED
+  src/pick_place_client.cpp
+)
+target_include_directories(pick_place_client PRIVATE
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>
+)
+
+ament_target_dependencies(pick_place_server
+  rclcpp
+  rclcpp_lifecycle
+  rclcpp_action
+  rclcpp_components
+  trajectory_msgs
+  urdf
+  soarm_msgs
+)
+ 
+ament_target_dependencies(pick_place_client
+  rclcpp
+  rclcpp_lifecycle
+  rclcpp_action
+  rclcpp_components
+  trajectory_msgs
+  urdf
+  soarm_msgs
+)
+
+rclcpp_components_register_node(pick_place_server
+  PLUGIN "soarm_scripts::PickPlaceServer"
+  EXECUTABLE pick_place_server_node
+)
+ 
+install(TARGETS
+  pick_place_server
+  pick_place_client
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+rclcpp_components_register_node(pick_place_client
+  PLUGIN "soarm_scripts::PickPlaceClient"
+  EXECUTABLE pick_place_client_node
+)
+
 install(TARGETS
   joint_tester joint_sweeper
   DESTINATION lib/${PROJECT_NAME}
 )
+
+
 
 
 

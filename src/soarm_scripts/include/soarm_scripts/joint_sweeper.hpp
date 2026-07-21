@@ -1,5 +1,5 @@
-#ifndef PICK_PLACE_HPP_
-#define PICK_PLACE_HPP_
+#ifndef JOINT_SWEEPER_HPP_
+#define JOINT_SWEEPER_HPP_
 
 #include <rclcpp/rclcpp.hpp> 
 #include <rclcpp_lifecycle/lifecycle_node.hpp>
