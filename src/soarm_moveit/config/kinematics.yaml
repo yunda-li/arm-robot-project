@@ -1,0 +1,14 @@
+arm_move_group:
+  # kinematics_solver: kdl_kinematics_plugin/KDLKinematicsPlugin
+  kinematics_solver: pick_ik/PickIkPlugin
+  kinematics_solver_timeout: 0.05
+  mode: global
+  position_scale: 1.0
+  rotation_scale: 0.0
+  position_threshold: 0.001
+  orientation_threshold: 0.05
+  approximate_solution_position_threshold: 0.01
+  approximate_solution_orientation_threshold: 0.15
+  cost_threshold: 0.001
+  center_joints_weight: 0.1
+  avoid_joint_limits_weight: 0.1

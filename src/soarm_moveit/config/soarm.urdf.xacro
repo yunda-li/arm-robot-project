@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="soarm">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import soarm urdf file -->
+    <xacro:include filename="$(find soarm_description)/urdf/soarm.urdf.xacro" />
+
+    <!-- Import control_xacro, should already havein my URDF -->
+    <!-- <xacro:include filename="soarm.ros2_control.xacro" /> -->
+    <!-- <xacro:soarm_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/> -->
+
+</robot>
