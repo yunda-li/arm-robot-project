@@ -10,8 +10,8 @@ namespace ik_tests
   class PickPlaceIK : public rclcpp::Node{
     public:
       //What is the proper format for this?
-      PickPlaceServer(const rclcpp::NodeOptions& options = 
-        rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true): Node("PickPlaceIK", options))
+      explicit PickPlaceIK(const rclcpp::NodeOptions& options = 
+        rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)): Node("PickPlaceIK", options)
       {
       }
 
@@ -29,34 +29,37 @@ namespace ik_tests
       //   double pause_s
       // };
 
-
       const std::unordered_map<std::string, Pose> PoseMap_ = 
       {
-        {"HOME" ,   {createArmPose()}},
-        {"PRE-PICK", {createArmPose()}},
-        {"PICK", {createArmPose()}},
-        {"PRE-PLACE", {createArmPose()}},
-        {"PLACE", {createArmPose()}},
+        {"HOME" ,   {createArmPose(.104, .022, .217, -.024, .994, .003, -.110)}},
+        {"PRE-PICK", {createArmPose(.066, .186, .262, -.081, -.410, .091, -.031)}},
+        {"PICK", {createArmPose(.077, .220, .137, -.012, -.066, .996, .066)}},
+        {"PRE-PLACE", {createArmPose(.206, -.206, .136, -.691, -.189, .211, .665)}},
+        {"PLACE", {createArmPose(.215, -.224, .055, -.688, -.189, .207, .669)}}
 
       };
 
       const std::vector<std::string> PoseSequence_ =
       {
         "HOME",
-        "PRE-PICK",
+        // "PRE-PICK",
         "PICK",
-        "PRE-PLACE",
+        // "HOME",
+        // "PRE-PLACE",
         "PLACE"
       };
 
-
-      static const Pose createArmPose(double position_x, double position_y, double position_z, double orient_w){
+      //Orientation in RViz is XYZW
+      static Pose createArmPose(double x, double y, double z, double qx, double qy, double qz, double qw){
         Pose msg;
-        msg.position.x = position_x;
-        msg.position.y = position_y;
-        msg.position.z = position_z;
+        msg.position.x = x;
+        msg.position.y = y;
+        msg.position.z = z;
 
-        msg.orientation.w = orient_w;
+        msg.orientation.x = qx;
+        msg.orientation.y = qy;
+        msg.orientation.z = qz;
+        msg.orientation.w = qw;
 
         return msg;
       }
@@ -70,18 +73,18 @@ namespace ik_tests
           continue;
         }
 
-        arm_move_group_.setPoseTarget(pose_it->second);
+        arm_move_group_->setPoseTarget(pose_it->second);
 
-        auto const [success, plan] = [&move_group_interface]{
+        auto const [success, plan] = [this]{
           MoveGroupInterface::Plan msg;
-          auto const ok = static_cast<bool>(move_group_interface.plan(msg));
+          auto const ok = static_cast<bool>(arm_move_group_->plan(msg));
           return std::make_pair(ok, msg);
         }();
 
         // Execute the plan
         if(success) {
-          move_group_interface.execute(plan);
-          RCLCPP_INFO(this->get_logger(), "Moving to Pose: " << pose_name);
+          arm_move_group_->execute(plan);
+          RCLCPP_INFO_STREAM(this->get_logger(), "Moving to Pose: " << pose_name);
         } else {
           RCLCPP_ERROR(this->get_logger(), "Planning failed!");
         }
@@ -97,6 +100,7 @@ int main(int argc, char* argv[]){
   std::thread spin_thread([node]() { rclcpp::spin(node); });
   node->init();
   rclcpp::shutdown();
+  spin_thread.join();
   return 0;
 
 }

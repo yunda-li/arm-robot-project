@@ -20,8 +20,17 @@ find_package(tf2_eigen REQUIRED)
 add_executable(moveit_test src/moveit_test.cpp)
 ament_target_dependencies(moveit_test rclcpp moveit_ros_planning_interface tf2_eigen)
 
+add_executable(pose_checker src/pose_checker.cpp)
+ament_target_dependencies(pose_checker rclcpp moveit_ros_planning_interface tf2_eigen)
+
+
 install(TARGETS
   moveit_test
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(TARGETS
+  pose_checker
   DESTINATION lib/${PROJECT_NAME}
 )
 
