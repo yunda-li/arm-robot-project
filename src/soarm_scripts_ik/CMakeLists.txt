@@ -11,17 +11,23 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
+find_package(moveit_ros_planning REQUIRED)
+find_package(tf2_ros REQUIRED)
 find_package(tf2_eigen REQUIRED)
 
 
 
-
-
 add_executable(moveit_test src/moveit_test.cpp)
-ament_target_dependencies(moveit_test rclcpp moveit_ros_planning_interface tf2_eigen)
+ament_target_dependencies(moveit_test rclcpp moveit_ros_planning_interface)
 
 add_executable(pose_checker src/pose_checker.cpp)
-ament_target_dependencies(pose_checker rclcpp moveit_ros_planning_interface tf2_eigen)
+ament_target_dependencies(pose_checker 
+  rclcpp 
+  moveit_ros_planning_interface 
+  moveit_ros_planning
+  tf2_ros
+  tf2_eigen
+  )
 
 
 install(TARGETS

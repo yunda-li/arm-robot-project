@@ -9,9 +9,12 @@ namespace ik_tests
 {
   class PickPlaceIK : public rclcpp::Node{
     public:
-      //What is the proper format for this?
-      explicit PickPlaceIK(const rclcpp::NodeOptions& options = 
-        rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)): Node("PickPlaceIK", options)
+      // explicit PickPlaceIK(const rclcpp::NodeOptions& options = 
+      //   rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)): Node("PickPlaceIK", options)
+
+      PickPlaceIK()
+      : Node("PickPlaceIk",
+            rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true))
       {
       }
 
