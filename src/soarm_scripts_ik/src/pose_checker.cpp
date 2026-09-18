@@ -12,6 +12,8 @@
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
 
+#define RAD_CONV .017453
+
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
@@ -24,6 +26,8 @@ int main(int argc, char * argv[])
 
   using moveit::planning_interface::MoveGroupInterface;
   auto move_group_interface = MoveGroupInterface(node, "arm_move_group");
+
+  move_group_interface.setGoalPositionTolerance(0.05); 
 
   std::thread spin_thread([&node]() { rclcpp::spin(node); });
 
@@ -59,34 +63,34 @@ int main(int argc, char * argv[])
   }
 
   // // HOME
-  // auto const target_pose = []{
-  //   geometry_msgs::msg::Pose msg;
-  //   msg.position.x = 0.104;
-  //   msg.position.y = 0.022;
-  //   msg.position.z = 0.217;
-
-  //   msg.orientation.x = -.024;
-  //   msg.orientation.y = .994;
-  //   msg.orientation.z = .003;
-  //   msg.orientation.w = -.110;
-
-  //   return msg;
-  // }();
-
-  // //PRE-PICK
   auto const target_pose = []{
     geometry_msgs::msg::Pose msg;
-    msg.position.x = 0.0814;
-    msg.position.y = 0.2331;
-    msg.position.z = 0.2168;
+    msg.position.x = 0.104;
+    msg.position.y = 0.022;
+    msg.position.z = 0.217;
 
-    msg.orientation.x = .3863;
-    msg.orientation.y = -.0007;
-    msg.orientation.z = -.2080;
-    msg.orientation.w = .8986;
+    msg.orientation.x = -.024;
+    msg.orientation.y = .994;
+    msg.orientation.z = .003;
+    msg.orientation.w = -.110;
 
     return msg;
   }();
+
+  // //PRE-PICK
+  // auto target_pose = []{
+  //   geometry_msgs::msg::Pose msg;
+  //   msg.position.x = 0.0814;
+  //   msg.position.y = 0.2331;
+  //   msg.position.z = 0.2168;
+
+  //   msg.orientation.x = .3863;
+  //   msg.orientation.y = -.0007;
+  //   msg.orientation.z = -.2080;
+  //   msg.orientation.w = .8986;
+
+  //   return msg;
+  // }();
 
   // PRE-PLACE
   // auto const target_pose = []{
@@ -103,7 +107,7 @@ int main(int argc, char * argv[])
   //   return msg;
   // }();  
 
-  // auto const target_pose = []{
+  // auto target_pose = []{
   //   geometry_msgs::msg::Pose msg;
   //   msg.position.x = 0.050981;
   //   msg.position.y = 0.230670;
@@ -121,9 +125,6 @@ int main(int argc, char * argv[])
   const moveit::core::JointModelGroup* jmg =
       real_current_state->getJointModelGroup("arm_move_group");
 
-  // bool found_ik = real_current_state->setFromIK(jmg, target_pose, "gripper", 0.1);
-  // RCLCPP_INFO(logger, "Real IK solve: %s", found_ik ? "SUCCESS" : "FAILED");
-
   moveit::core::RobotState confirmed_start_state = *real_current_state;
 
   bool found_ik = false;
@@ -133,10 +134,15 @@ int main(int argc, char * argv[])
   }
   RCLCPP_INFO(logger, "IK with random restarts: %s", found_ik ? "SUCCESS" : "FAILED");
 
-  move_group_interface.setStartState(confirmed_start_state); 
-  move_group_interface.setGoalPositionTolerance(0.05); 
-  move_group_interface.setPositionTarget(.292, .022, .252, "gripper");
-  // move_group_interface.setPoseTarget(target_pose);
+  // move_group_interface.setStartState(confirmed_start_state); 
+
+  move_group_interface.setPositionTarget(.206, -.206, .136, "gripper");
+  move_group_interface.setPoseTarget(target_pose);
+
+  // std::vector<double> joints = {-61*RAD_CONV, 37*RAD_CONV, -51*RAD_CONV, 20*RAD_CONV, 101*RAD_CONV};
+
+  // move_group_interface.setJointValueTarget(joints);
+
 
   auto const [success, plan] = [&move_group_interface]{
     moveit::planning_interface::MoveGroupInterface::Plan msg;
@@ -150,6 +156,45 @@ int main(int argc, char * argv[])
   } else {
     RCLCPP_ERROR(logger, "Planning failed!");
   }
+
+
+  //Relative motion
+  rclcpp::sleep_for(std::chrono::milliseconds(200)); // let CurrentStateMonitor catch up post-execute
+  auto current_pose = move_group_interface.getCurrentPose();
+  RCLCPP_INFO(logger, "Current pose for Cartesian start: x=%f y=%f z=%f",
+      current_pose.pose.position.x, current_pose.pose.position.y, current_pose.pose.position.z);
+  
+  geometry_msgs::msg::Pose move_pose = current_pose.pose;
+  move_pose.position.y += 0.050;
+
+  std::vector<geometry_msgs::msg::Pose> waypoints;
+  waypoints.push_back(move_pose);
+
+  move_pose.position.x += 0.050;
+  waypoints.push_back(move_pose);
+
+  move_pose.position.z += 0.050;
+  waypoints.push_back(move_pose);
+ 
+  moveit_msgs::msg::RobotTrajectory trajectory;
+  const double jump_threshold = 0.0;
+  const double eef_step = 0.001;
+  double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
+  
+  RCLCPP_INFO(logger, "Cartesian path fraction: %f, waypoints in traj: %zu",
+      fraction, trajectory.joint_trajectory.points.size());
+
+  if (fraction > 0.95 && !trajectory.joint_trajectory.points.empty()) {
+      move_group_interface.execute(trajectory);
+  } else {
+      RCLCPP_ERROR(logger, "Cartesian path failed or incomplete (fraction=%.2f) — not executing.", fraction);
+  }
+
+  rclcpp::sleep_for(std::chrono::milliseconds(200));
+  auto final_pose = move_group_interface.getCurrentPose();
+  RCLCPP_INFO(logger, "Final pose after Cartesian move: x=%f y=%f z=%f",
+      final_pose.pose.position.x, final_pose.pose.position.y, final_pose.pose.position.z);
+
 
     rclcpp::shutdown();
     spin_thread.join();

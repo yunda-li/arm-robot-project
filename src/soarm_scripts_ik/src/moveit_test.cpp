@@ -1,6 +1,9 @@
 #include <memory>
 #include <rclcpp/rclcpp.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Matrix3x3.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 using moveit::planning_interface::MoveGroupInterface;
 using geometry_msgs::msg::Pose;
@@ -45,10 +48,10 @@ namespace ik_tests
       const std::vector<std::string> PoseSequence_ =
       {
         "HOME",
-        // "PRE-PICK",
+        "PRE-PICK",
         "PICK",
-        // "HOME",
-        // "PRE-PLACE",
+        "HOME",
+        "PRE-PLACE",
         "PLACE"
       };
 
@@ -66,6 +69,86 @@ namespace ik_tests
 
         return msg;
       }
+
+      std::vector<geometry_msgs::msg::Quaternion> generateOrientationCandidates(
+        const geometry_msgs::msg::Quaternion &original,
+        double angle_step = 0.15)
+      {
+
+        std::vector<geometry_msgs::msg::Quaternion> candidates;
+        candidates.push_back(original); //First candidate is always the original Orientation
+
+        tf2::Quaternion q_original(original.x, original.y, original.z, original.w);
+        q_original.normalize();
+
+        std::vector<tf2::Vector3> axes = {
+          tf2::Vector3(1, 0, 0),
+          tf2::Vector3(0, 1, 0),
+          tf2::Vector3(0, 0, 1)
+        };
+
+        std::vector<double> signs = {1.0, -1.0};
+
+        for (const auto& axis: axes){
+          for (double sign : signs){
+            tf2::Quaternion q_delta(axis, sign * angle_step);
+            tf2::Quaternion q_new = q_delta * q_original;
+            q_new.normalize();
+
+            geometry_msgs::msg::Quaternion msg;
+            msg.x = q_new.x();
+            msg.y = q_new.y();
+            msg.z = q_new.z();
+            msg.w = q_new.w();
+            candidates.push_back(msg);
+
+          }
+
+        }
+
+        return candidates;
+      }
+
+      bool planAndExecutePose(MoveGroupInterface &move_group_interface,
+        const Pose &target_pose){
+
+        auto candidates = generateOrientationCandidates(target_pose.orientation);
+        
+        for (size_t i = 0; i < candidates.size(); ++i){
+          Pose test_pose = target_pose;
+          test_pose.orientation = candidates[i];
+
+          move_group_interface.setPoseTarget(test_pose, "gripper");
+
+          MoveGroupInterface::Plan plan;
+          bool ok = static_cast<bool>(move_group_interface.plan(plan));
+
+          if (ok){
+            move_group_interface.execute(plan);
+            return true;
+          }
+          else{
+            RCLCPP_WARN(this->get_logger(), "POSE Candidate #%ld Failed", i);
+          }
+        }
+
+        RCLCPP_ERROR(this->get_logger(), "Planning failed for all Pose Candidates");
+        return false;
+      }
+
+      void planAndExecutePosition(MoveGroupInterface &move_group_interface){
+        auto const [success, plan] = [&move_group_interface](){
+        MoveGroupInterface::Plan msg;
+        auto const ok = static_cast<bool>(move_group_interface.plan(msg));
+        return std::make_pair(ok, msg);
+        }();
+
+        if (success){
+            move_group_interface.execute(plan);
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "POSITION Planning Failed");
+        }
+      }
       
       void test(){
 
@@ -76,21 +159,20 @@ namespace ik_tests
           continue;
         }
 
+        auto created_pose = pose_it->second;
+        double x = created_pose.position.x;
+        double y = created_pose.position.y;
+        double z = created_pose.position.z;
+
+        // arm_move_group_->setPositionTarget(x,y,z, "gripper");
+
+        // planAndExecutePosition(*arm_move_group_);
+
+        RCLCPP_INFO_STREAM(this->get_logger(), "====POSE PLANNED TO: " << pose_it->first);
         arm_move_group_->setPoseTarget(pose_it->second);
 
-        auto const [success, plan] = [this]{
-          MoveGroupInterface::Plan msg;
-          auto const ok = static_cast<bool>(arm_move_group_->plan(msg));
-          return std::make_pair(ok, msg);
-        }();
+        planAndExecutePose(*arm_move_group_, created_pose);
 
-        // Execute the plan
-        if(success) {
-          arm_move_group_->execute(plan);
-          RCLCPP_INFO_STREAM(this->get_logger(), "Moving to Pose: " << pose_name);
-        } else {
-          RCLCPP_ERROR(this->get_logger(), "Planning failed!");
-        }
       }
       
       }
