@@ -12,7 +12,80 @@
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
 
+#include <moveit_msgs/msg/orientation_constraint.hpp>
+#include <moveit_msgs/msg/constraints.hpp>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Matrix3x3.h>
+
 #define RAD_CONV .017453
+
+using moveit::planning_interface::MoveGroupInterface;
+using geometry_msgs::msg::Pose;
+
+bool planAndExecutePose(MoveGroupInterface &move_group_interface, const rclcpp::Logger &logger, const Pose &target_pose){
+
+  tf2::Quaternion q(
+    target_pose.orientation.x,
+    target_pose.orientation.y,
+    target_pose.orientation.z,
+    target_pose.orientation.w);
+  q.normalize();
+
+  double roll, pitch, yaw;
+  tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+
+  RCLCPP_INFO(logger, "Initial Goal orientation (RPY, degrees): roll=%f pitch=%f yaw=%f",
+    roll * 180.0 / M_PI, pitch * 180.0 / M_PI, yaw * 180.0 / M_PI);
+
+  //Orientation relaxing, test with setTargetPose() and setTargetPosition()
+  moveit_msgs::msg::OrientationConstraint ocm;
+  ocm.link_name = "gripper";
+  ocm.header.frame_id = move_group_interface.getPlanningFrame();
+  ocm.orientation = target_pose.orientation;
+
+  //Orientation deviation from given 
+  ocm.absolute_x_axis_tolerance = 20*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned
+  ocm.absolute_y_axis_tolerance = 45*RAD_CONV;
+  ocm.absolute_z_axis_tolerance = 90*RAD_CONV;
+  ocm.weight = 1.0;
+  
+  moveit_msgs::msg::Constraints constraints;
+  constraints.orientation_constraints.push_back(ocm);
+  move_group_interface.setPathConstraints(constraints);
+
+  // move_group_interface.setPoseTarget(target_pose, "gripper");
+  move_group_interface.setPositionTarget(target_pose.position.x, target_pose.position.y, target_pose.position.z, "gripper");
+
+  MoveGroupInterface::Plan plan;
+  bool ok = static_cast<bool>(move_group_interface.plan(plan));
+
+  if (ok){
+    move_group_interface.execute(plan);
+    return true;
+  }
+  else{
+    RCLCPP_WARN(logger, "Restrained Position Target Failed");
+    return false;
+  }
+}
+
+void planAndExecuteJoints(MoveGroupInterface &move_group_interface, const rclcpp::Logger &logger){
+  auto const [success, plan] = [&move_group_interface](){
+    MoveGroupInterface::Plan msg;
+    auto ok = static_cast<bool>(move_group_interface.plan(msg));
+    return std::make_pair(ok, msg);
+  }();
+
+  //Maybe add FK? Probably not.
+  if (success){
+    move_group_interface.execute(plan);
+    RCLCPP_INFO(logger, "Joint Target Reached");
+  }
+  else{
+    RCLCPP_WARN(logger, "Joint Target Failed");
+  }
+
+}
 
 int main(int argc, char * argv[])
 {
@@ -27,7 +100,7 @@ int main(int argc, char * argv[])
   using moveit::planning_interface::MoveGroupInterface;
   auto move_group_interface = MoveGroupInterface(node, "arm_move_group");
 
-  move_group_interface.setGoalPositionTolerance(0.05); 
+  // move_group_interface.setGoalPositionTolerance(0.05); 
 
   std::thread spin_thread([&node]() { rclcpp::spin(node); });
 
@@ -63,34 +136,34 @@ int main(int argc, char * argv[])
   }
 
   // // HOME
-  auto const target_pose = []{
-    geometry_msgs::msg::Pose msg;
-    msg.position.x = 0.104;
-    msg.position.y = 0.022;
-    msg.position.z = 0.217;
-
-    msg.orientation.x = -.024;
-    msg.orientation.y = .994;
-    msg.orientation.z = .003;
-    msg.orientation.w = -.110;
-
-    return msg;
-  }();
-
-  // //PRE-PICK
-  // auto target_pose = []{
+  // auto const target_pose = []{
   //   geometry_msgs::msg::Pose msg;
-  //   msg.position.x = 0.0814;
-  //   msg.position.y = 0.2331;
-  //   msg.position.z = 0.2168;
+  //   msg.position.x = 0.104;
+  //   msg.position.y = 0.022;
+  //   msg.position.z = 0.217;
 
-  //   msg.orientation.x = .3863;
-  //   msg.orientation.y = -.0007;
-  //   msg.orientation.z = -.2080;
-  //   msg.orientation.w = .8986;
+  //   msg.orientation.x = -.024;
+  //   msg.orientation.y = .994;
+  //   msg.orientation.z = .003;
+  //   msg.orientation.w = -.110;
 
   //   return msg;
   // }();
+
+  //PRE-PICK
+  auto target_pose = []{
+    geometry_msgs::msg::Pose msg;
+    msg.position.x = 0.0814;
+    msg.position.y = 0.2331;
+    msg.position.z = 0.2168;
+
+    msg.orientation.x = .3863;
+    msg.orientation.y = -.0007;
+    msg.orientation.z = -.2080;
+    msg.orientation.w = .8986;
+
+    return msg;
+  }();
 
   // PRE-PLACE
   // auto const target_pose = []{
@@ -121,44 +194,13 @@ int main(int argc, char * argv[])
   //   return msg;
   // }();  
 
-  auto current_state = move_group_interface.getCurrentState();
-  const moveit::core::JointModelGroup* jmg =
-      real_current_state->getJointModelGroup("arm_move_group");
+  std::vector<double> joints = {-61*RAD_CONV, 37*RAD_CONV, -51*RAD_CONV, 20*RAD_CONV, 101*RAD_CONV};
+  move_group_interface.setJointValueTarget(joints);
+  planAndExecuteJoints(move_group_interface, logger);
 
-  moveit::core::RobotState confirmed_start_state = *real_current_state;
+  planAndExecutePose(move_group_interface, logger, target_pose);
 
-  bool found_ik = false;
-  for (int i = 0; i < 20 && !found_ik; ++i) {
-    real_current_state->setToRandomPositions(jmg);
-    found_ik = real_current_state->setFromIK(jmg, target_pose, "gripper", 0.2);
-  }
-  RCLCPP_INFO(logger, "IK with random restarts: %s", found_ik ? "SUCCESS" : "FAILED");
-
-  // move_group_interface.setStartState(confirmed_start_state); 
-
-  move_group_interface.setPositionTarget(.206, -.206, .136, "gripper");
-  move_group_interface.setPoseTarget(target_pose);
-
-  // std::vector<double> joints = {-61*RAD_CONV, 37*RAD_CONV, -51*RAD_CONV, 20*RAD_CONV, 101*RAD_CONV};
-
-  // move_group_interface.setJointValueTarget(joints);
-
-
-  auto const [success, plan] = [&move_group_interface]{
-    moveit::planning_interface::MoveGroupInterface::Plan msg;
-    auto const ok = static_cast<bool>(move_group_interface.plan(msg));
-    return std::make_pair(ok, msg);
-  }();
-
-
-  if(success) {
-    move_group_interface.execute(plan);
-  } else {
-    RCLCPP_ERROR(logger, "Planning failed!");
-  }
-
-
-  //Relative motion
+  //Relative motion, test orientation adjustment
   rclcpp::sleep_for(std::chrono::milliseconds(200)); // let CurrentStateMonitor catch up post-execute
   auto current_pose = move_group_interface.getCurrentPose();
   RCLCPP_INFO(logger, "Current pose for Cartesian start: x=%f y=%f z=%f",
@@ -175,6 +217,9 @@ int main(int argc, char * argv[])
 
   move_pose.position.z += 0.050;
   waypoints.push_back(move_pose);
+
+  //Test orientation Adjustment
+  // move_pose.orientation
  
   moveit_msgs::msg::RobotTrajectory trajectory;
   const double jump_threshold = 0.0;
@@ -192,8 +237,21 @@ int main(int argc, char * argv[])
 
   rclcpp::sleep_for(std::chrono::milliseconds(200));
   auto final_pose = move_group_interface.getCurrentPose();
-  RCLCPP_INFO(logger, "Final pose after Cartesian move: x=%f y=%f z=%f",
+  RCLCPP_INFO(logger, "Final pose after Cartesian move: x=%f y=%f z=%f, ",
       final_pose.pose.position.x, final_pose.pose.position.y, final_pose.pose.position.z);
+
+  tf2::Quaternion q(
+    final_pose.pose.orientation.x,
+    final_pose.pose.orientation.y,
+    final_pose.pose.orientation.z,
+    final_pose.pose.orientation.w);
+  q.normalize();
+
+  double roll, pitch, yaw;
+  tf2::Matrix3x3(q).getRPY(roll, pitch, yaw);
+
+  RCLCPP_INFO(logger, "Final Goal orientation (RPY, degrees): roll=%f pitch=%f yaw=%f",
+    roll * 180.0 / M_PI, pitch * 180.0 / M_PI, yaw * 180.0 / M_PI);
 
 
     rclcpp::shutdown();

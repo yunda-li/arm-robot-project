@@ -34,6 +34,7 @@ ament_target_dependencies(pose_checker
   moveit_ros_planning
   tf2_ros
   tf2_eigen
+  tf2
   )
 
   add_executable(position_checker src/position_checker.cpp)
