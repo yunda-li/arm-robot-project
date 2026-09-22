@@ -16,6 +16,7 @@
 #include <moveit_msgs/msg/constraints.hpp>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 #define RAD_CONV .017453
 
@@ -44,9 +45,9 @@ bool planAndExecutePose(MoveGroupInterface &move_group_interface, const rclcpp::
   ocm.orientation = target_pose.orientation;
 
   //Orientation deviation from given 
-  ocm.absolute_x_axis_tolerance = 20*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned
-  ocm.absolute_y_axis_tolerance = 45*RAD_CONV;
-  ocm.absolute_z_axis_tolerance = 90*RAD_CONV;
+  ocm.absolute_x_axis_tolerance = 90*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned, but with correction can be loose
+  ocm.absolute_y_axis_tolerance = 60*RAD_CONV;
+  ocm.absolute_z_axis_tolerance = 60*RAD_CONV;
   ocm.weight = 1.0;
   
   moveit_msgs::msg::Constraints constraints;
@@ -151,34 +152,34 @@ int main(int argc, char * argv[])
   // }();
 
   //PRE-PICK
-  auto target_pose = []{
-    geometry_msgs::msg::Pose msg;
-    msg.position.x = 0.0814;
-    msg.position.y = 0.2331;
-    msg.position.z = 0.2168;
-
-    msg.orientation.x = .3863;
-    msg.orientation.y = -.0007;
-    msg.orientation.z = -.2080;
-    msg.orientation.w = .8986;
-
-    return msg;
-  }();
-
-  // PRE-PLACE
-  // auto const target_pose = []{
+  // auto target_pose = []{
   //   geometry_msgs::msg::Pose msg;
-  //   msg.position.x = 0.206;
-  //   msg.position.y = -0.206;
-  //   msg.position.z = 0.136;
+  //   msg.position.x = 0.0814;
+  //   msg.position.y = 0.2331;
+  //   msg.position.z = 0.2168;
 
-  //   msg.orientation.x = -.691;
-  //   msg.orientation.y = -.189;
-  //   msg.orientation.z = .211;
-  //   msg.orientation.w = .665;
+  //   msg.orientation.x = .3863;
+  //   msg.orientation.y = -.0007;
+  //   msg.orientation.z = -.2080;
+  //   msg.orientation.w = .8986;
 
   //   return msg;
-  // }();  
+  // }();
+
+  // PRE-PLACE
+  auto const target_pose = []{
+    geometry_msgs::msg::Pose msg;
+    msg.position.x = 0.206;
+    msg.position.y = -0.206;
+    msg.position.z = 0.136;
+
+    msg.orientation.x = -.691;
+    msg.orientation.y = -.189;
+    msg.orientation.z = .211;
+    msg.orientation.w = .665;
+
+    return msg;
+  }();  
 
   // auto target_pose = []{
   //   geometry_msgs::msg::Pose msg;
@@ -194,9 +195,9 @@ int main(int argc, char * argv[])
   //   return msg;
   // }();  
 
-  std::vector<double> joints = {-61*RAD_CONV, 37*RAD_CONV, -51*RAD_CONV, 20*RAD_CONV, 101*RAD_CONV};
-  move_group_interface.setJointValueTarget(joints);
-  planAndExecuteJoints(move_group_interface, logger);
+  // std::vector<double> joints = {-61*RAD_CONV, 37*RAD_CONV, -51*RAD_CONV, 20*RAD_CONV, 101*RAD_CONV};
+  // move_group_interface.setJointValueTarget(joints);
+  // planAndExecuteJoints(move_group_interface, logger);
 
   planAndExecutePose(move_group_interface, logger, target_pose);
 
@@ -205,7 +206,20 @@ int main(int argc, char * argv[])
   auto current_pose = move_group_interface.getCurrentPose();
   RCLCPP_INFO(logger, "Current pose for Cartesian start: x=%f y=%f z=%f",
       current_pose.pose.position.x, current_pose.pose.position.y, current_pose.pose.position.z);
-  
+
+  //Correct wrist in Joint Space here, Horizontal flat is 93 or -87, Vertical is 0
+  std::vector<double> joint_group_positions;
+  const moveit::core::JointModelGroup *joint_model_group = move_group_interface.getCurrentState()->getJointModelGroup("arm_move_group");
+  move_group_interface.getCurrentState()->copyJointGroupPositions(joint_model_group, joint_group_positions);
+
+  int wrist_roll_joint_index = 4;
+  //Horizontal flat is 93 or -87, Vertical is 0
+  joint_group_positions[wrist_roll_joint_index] = 93*RAD_CONV;
+
+  move_group_interface.setJointValueTarget(joint_group_positions);
+  planAndExecuteJoints(move_group_interface, logger);
+  RCLCPP_INFO(logger, "Wrist roll corrected");
+
   geometry_msgs::msg::Pose move_pose = current_pose.pose;
   move_pose.position.y += 0.050;
 
@@ -218,8 +232,13 @@ int main(int argc, char * argv[])
   move_pose.position.z += 0.050;
   waypoints.push_back(move_pose);
 
-  //Test orientation Adjustment
-  // move_pose.orientation
+  //Orientation adjustment test, To do next
+  tf2::Quaternion q_move(
+    move_pose.orientation.x,
+    move_pose.orientation.y,
+    move_pose.orientation.z,
+    move_pose.orientation.w);
+  q_move.normalize();
  
   moveit_msgs::msg::RobotTrajectory trajectory;
   const double jump_threshold = 0.0;
