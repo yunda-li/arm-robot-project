@@ -22,7 +22,9 @@ add_executable(moveit_test src/moveit_test.cpp)
 ament_target_dependencies(moveit_test 
   rclcpp 
   moveit_ros_planning_interface
+  moveit_ros_planning
   tf2
+  tf2_ros
   tf2_geometry_msgs
   geometry_msgs
   )
