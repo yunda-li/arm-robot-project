@@ -8,6 +8,8 @@
 
 #include <memory>
 
+#define RAD_CONV 0.001533979
+
 using namespace std::chrono_literals;
 using namespace std::placeholders;
 
@@ -49,7 +51,7 @@ class PickPlaceClient : public rclcpp_lifecycle::LifecycleNode
 
             //Send async_goal_cancel
 
-        // if (current_goal_handle_) {
+        // if (current_goal_handle_) { // Trying to keep the active goal_handle as a member object so can access
         //     auto cancel_future = client_->async_cancel_goal(
         //         current_goal_handle_,
         //         [this](rclcpp_action::Client<soarm_msgs::action::SoarmTask>::CancelResponse::SharedPtr response) {
@@ -79,18 +81,34 @@ class PickPlaceClient : public rclcpp_lifecycle::LifecycleNode
         rclcpp::TimerBase::SharedPtr pause_timer_;
         // rclcpp_action::ClientGoalHandle<soarm_msgs::action::SoarmTask>::SharedPtr current_goal_handle_;
 
-        //Pick Coords: (.228, .326), Place Coords: (.27, .305)
+        //Sim Pick Coords: (.228, .326), Place Coords: (.27, .305)
+        // std::map<std::string, std::vector<double>> arm_pose_table_ = {
+        //     {"HOME", {0,        1.5,    -1.5,   0,      0}},
+        //     {"PRE-PICK", {-1,   2.3,    -1.3,   -1,     -1.6}},
+        //     {"PICK", {-1,       2.6,    -1.5,   -1.1,   -1.6}},
+        //     {"PRE-PLACE", {1,   2.2,    -1,     -1.1,   1.6}},
+        //     {"PLACE", {1,       2.6,    -1.4,   -1.2,   1.6}}
+        // };
+
+        //Hardware Pick
         std::map<std::string, std::vector<double>> arm_pose_table_ = {
-            {"HOME", {0,        1.5,    -1.5,   0,      0}},
-            {"PRE-PICK", {-1,   2.3,    -1.3,   -1,     -1.6}},
-            {"PICK", {-1,       2.6,    -1.5,   -1.1,   -1.6}},
-            {"PRE-PLACE", {1,   2.2,    -1,     -1.1,   1.6}},
-            {"PLACE", {1,       2.6,    -1.4,   -1.2,   1.6}}
+            {"HOME",        {2500*RAD_CONV,     1000*RAD_CONV,    2500*RAD_CONV,   1400*RAD_CONV,      3300*RAD_CONV}},
+            {"PRE-PICK",    {2060*RAD_CONV,     960*RAD_CONV,     1270*RAD_CONV,   1640*RAD_CONV,      3300*RAD_CONV}},
+            {"PICK",        {2060*RAD_CONV,     930*RAD_CONV,     500*RAD_CONV,    2600*RAD_CONV,      3300*RAD_CONV}},
+            {"PRE-PLACE",   {3030*RAD_CONV,     960*RAD_CONV,     1020*RAD_CONV,   1920*RAD_CONV,      3300*RAD_CONV}},
+            {"PLACE",       {3030*RAD_CONV,     920*RAD_CONV,     500*RAD_CONV,    2600*RAD_CONV,      3300*RAD_CONV}}
         };
 
+        //Sim Pick
+        // std::map<std::string, std::vector<double>> gripper_pose_table_ = {
+        //     {"OPEN", {1.5}},
+        //     {"CLOSED", {0}}
+        // };
+
+        //Hardware Pick
         std::map<std::string, std::vector<double>> gripper_pose_table_ = {
-            {"OPEN", {1.5}},
-            {"CLOSED", {0}}
+            {"OPEN", {2700*RAD_CONV}},
+            {"CLOSED", {1400*RAD_CONV}}
         };
 
         struct SequenceStep{
@@ -100,17 +118,17 @@ class PickPlaceClient : public rclcpp_lifecycle::LifecycleNode
         };
 
         std::vector<SequenceStep> pick_place_sequence_ = {
-            {"HOME",        "CLOSED",     0.0},
-            {"PRE-PICK",    "OPEN",     0.0},
-            {"PICK",        "OPEN",     0.0},
-            {"PICK",        "CLOSED",     0.0},
-            {"PRE-PICK",    "CLOSED",     0.0},
-            {"HOME",        "CLOSED",     0.0},
-            {"PRE-PLACE",    "CLOSED",     0.0},
-            {"PLACE",       "CLOSED",     0.0},
-            {"PLACE",       "OPEN",     0.0},
-            {"PRE-PLACE",    "OPEN",     0.0},
-            {"HOME",        "CLOSED",     0.0},
+            {"HOME",        "CLOSED",     0.1},
+            {"PRE-PICK",    "OPEN",     0.1},
+            {"PICK",        "OPEN",     0.1},
+            {"PICK",        "CLOSED",     0.1},
+            {"PRE-PICK",    "CLOSED",     0.1},
+            // {"HOME",        "CLOSED",     0.1},
+            {"PRE-PLACE",    "CLOSED",     0.1},
+            {"PLACE",       "CLOSED",     0.1},
+            {"PLACE",       "OPEN",     0.1},
+            {"PRE-PLACE",    "OPEN",     0.1},
+            {"HOME",        "CLOSED",     0.1},
         };
 
         size_t seq_index_ = 0;

@@ -11,10 +11,13 @@
         <xacro:property name="RAD_CONV" value="0.001533979"/>
 
         <ros2_control name="SO_ARM101" type="system">
-            <!-- ros2_control Gazebo -->
             <xacro:if value="${is_sim_prop}">
-                <hardware>
+                <!-- Commenting out for MoveIt only -->
+                <!-- <hardware>
                     <plugin>gz_ros2_control/GazeboSimSystem</plugin>
+                </hardware> -->
+                <hardware>
+                    <plugin>mock_components/GenericSystem</plugin>
                 </hardware>
 
             </xacro:if>
