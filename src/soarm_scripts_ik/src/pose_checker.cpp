@@ -45,9 +45,9 @@ bool planAndExecutePose(MoveGroupInterface &move_group_interface, const rclcpp::
   ocm.orientation = target_pose.orientation;
 
   //Orientation deviation from given 
-  ocm.absolute_x_axis_tolerance = 90*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned, but with correction can be loose
+  ocm.absolute_x_axis_tolerance = 180*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned, but with correction can be loose
   ocm.absolute_y_axis_tolerance = 60*RAD_CONV;
-  ocm.absolute_z_axis_tolerance = 60*RAD_CONV;
+  ocm.absolute_z_axis_tolerance = 180*RAD_CONV;
   ocm.weight = 1.0;
   
   moveit_msgs::msg::Constraints constraints;
@@ -152,34 +152,34 @@ int main(int argc, char * argv[])
   // }();
 
   //PRE-PICK
-  // auto target_pose = []{
-  //   geometry_msgs::msg::Pose msg;
-  //   msg.position.x = 0.0814;
-  //   msg.position.y = 0.2331;
-  //   msg.position.z = 0.2168;
-
-  //   msg.orientation.x = .3863;
-  //   msg.orientation.y = -.0007;
-  //   msg.orientation.z = -.2080;
-  //   msg.orientation.w = .8986;
-
-  //   return msg;
-  // }();
-
-  // PRE-PLACE
-  auto const target_pose = []{
+  auto target_pose = []{
     geometry_msgs::msg::Pose msg;
-    msg.position.x = 0.206;
-    msg.position.y = -0.206;
-    msg.position.z = 0.136;
+    msg.position.x = 0.094;
+    msg.position.y = 0.176;
+    msg.position.z = 0.233;
 
-    msg.orientation.x = -.691;
-    msg.orientation.y = -.189;
-    msg.orientation.z = .211;
-    msg.orientation.w = .665;
+    msg.orientation.x = -.134;
+    msg.orientation.y = -.495;
+    msg.orientation.z = .854;
+    msg.orientation.w = .090;
 
     return msg;
-  }();  
+  }();
+
+  // PRE-PLACE
+  // auto const target_pose = []{
+  //   geometry_msgs::msg::Pose msg;
+  //   msg.position.x = 0.206;
+  //   msg.position.y = -0.206;
+  //   msg.position.z = 0.136;
+
+  //   msg.orientation.x = -.691;
+  //   msg.orientation.y = -.189;
+  //   msg.orientation.z = .211;
+  //   msg.orientation.w = .665;
+
+  //   return msg;
+  // }();  
 
   // auto target_pose = []{
   //   geometry_msgs::msg::Pose msg;
@@ -194,10 +194,6 @@ int main(int argc, char * argv[])
 
   //   return msg;
   // }();  
-
-  // std::vector<double> joints = {-61*RAD_CONV, 37*RAD_CONV, -51*RAD_CONV, 20*RAD_CONV, 101*RAD_CONV};
-  // move_group_interface.setJointValueTarget(joints);
-  // planAndExecuteJoints(move_group_interface, logger);
 
   planAndExecutePose(move_group_interface, logger, target_pose);
 
@@ -221,7 +217,8 @@ int main(int argc, char * argv[])
   RCLCPP_INFO(logger, "Wrist roll corrected");
 
   geometry_msgs::msg::Pose move_pose = current_pose.pose;
-  move_pose.position.y += 0.050;
+  move_pose.position.z += 0.020;
+  // move_pose.position.y += 0.020;
 
   std::vector<geometry_msgs::msg::Pose> waypoints;
   waypoints.push_back(move_pose);

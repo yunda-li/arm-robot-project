@@ -6,6 +6,9 @@
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 #include <moveit_msgs/msg/orientation_constraint.hpp>
 #include <moveit_msgs/msg/constraints.hpp>
+#include <variant>
+#include <geometry_msgs/msg/pose.hpp>
+
 
 #define RAD_CONV 0.017453
 
@@ -24,6 +27,8 @@ namespace ik_tests
 
       void init(){
         arm_move_group_ = std::make_shared<MoveGroupInterface>(shared_from_this(), "arm_move_group");
+        arm_move_group_->setPlanningTime(5.0);
+        arm_move_group_->setNumPlanningAttempts(10);
         test();
       }
 
@@ -41,23 +46,25 @@ namespace ik_tests
       //Some funky paths this way. Maybe a Pre Pre Pick step? Or make PrePick a Joint Value Target
       const std::unordered_map<std::string, ArmTarget> StepMap_ = 
       {
-        {"HOME" , {TargetType::targetJoints, std::vector<double>{0, 27*RAD_CONV, -49*RAD_CONV, 22*RAD_CONV, 92*RAD_CONV}}},
-        {"PRE-PICK", {TargetType::targetPose, createArmPose(.066, .186, .262, -.081, -.410, .091, -.031)}},
-        // {"PICK", {createArmPose(.077, .220, .137, -.012, -.066, .996, .066)}},
-        {"PRE-PLACE", {TargetType::targetPose, createArmPose(.206, -.206, .136, -.691, -.189, .211, .665)}}
-        // {"PLACE", {createArmPose(.215, -.224, .055, -.688, -.189, .207, .669)}}
+        {"HOME" ,     {TargetType::targetJoints, std::vector<double>{0, 27*RAD_CONV, -49*RAD_CONV, 22*RAD_CONV, 92*RAD_CONV}}},
+        {"NEAR-HOME", {TargetType::targetPose, createArmPose(.174, .022, .253, -.498, -.508, .492, .502)}},
+        {"PRE-PICK",  {TargetType::targetJoints, std::vector<double>{-69*RAD_CONV, 63*RAD_CONV, -73*RAD_CONV, 39*RAD_CONV, 102*RAD_CONV}}},
+        {"PICK",      {TargetType::targetPose, createArmPose(.077, .220, .137, -.012, -.066, .996, .066)}},
+        {"PRE-PLACE", {TargetType::targetJoints, std::vector<double>{58*RAD_CONV, 73*RAD_CONV, -86*RAD_CONV, 65*RAD_CONV, 100*RAD_CONV}}},
+        {"PLACE",     {TargetType::targetPose, createArmPose(.215, -.224, .055, -.688, -.189, .207, .669)}}
       };
 
       const std::vector<std::string> StepSequence_ =
       {
         "HOME",
         "PRE-PICK",
-        "CUSTOM",
+        "PICK",
+        "NEAR-HOME",
         "HOME",
         "BOX",
         "EIGHT",
-        // "PRE-PLACE",
-        "CUSTOM"
+        "PRE-PLACE",
+        "PLACE"
       };
 
       //Orientation in RViz is XYZW
@@ -97,8 +104,8 @@ namespace ik_tests
         ocm.orientation = target_pose.orientation;
 
         ocm.absolute_x_axis_tolerance = 90*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned, but with correction can be loose
-        ocm.absolute_y_axis_tolerance = 30*RAD_CONV;
-        ocm.absolute_z_axis_tolerance = 60*RAD_CONV;
+        ocm.absolute_y_axis_tolerance = 45*RAD_CONV;
+        ocm.absolute_z_axis_tolerance = 180*RAD_CONV;
         ocm.weight = 1.0;
         
         moveit_msgs::msg::Constraints constraints;
@@ -135,16 +142,56 @@ namespace ik_tests
         }
       }
       
+      void fixWristRoll(MoveGroupInterface &move_group_interface, double orientation){
 
+
+      }
+
+      void boxDemo(MoveGroupInterface &move_group_interface){
+        auto current_pose = move_group_interface.getCurrentPose();
+        geometry_msgs::msg::Pose base_pose = current_pose.pose;
+        RCLCPP_INFO(this->get_logger(), "Planning Box Demo");
+
+        base_pose.position.z += 0.100;
+        base_pose.position.y += 0.100;
+
+        std::vector<geometry_msgs::msg::Pose> waypoints;
+        waypoints.push_back(base_pose);
+
+        // base_pose.position.x += 0.050;
+        // waypoints.push_back(base_pose);
+
+        // base_pose.position.z += 0.050;
+        // waypoints.push_back(base_pose);
+        moveit_msgs::msg::RobotTrajectory trajectory;
+        const double jump_threshold = 0.0;
+        const double eef_step = 0.001;
+        double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
+        
+        RCLCPP_INFO(this->get_logger(), "Cartesian path fraction: %f, waypoints in traj: %zu",
+            fraction, trajectory.joint_trajectory.points.size());
+
+        if (fraction > 0.95 && !trajectory.joint_trajectory.points.empty()) {
+            move_group_interface.execute(trajectory);
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Cartesian path failed or incomplete (fraction=%.2f) — not executing.", fraction);
+        }
+
+      }
+
+      void eightDemo(MoveGroupInterface &move_group_interface){
+
+
+      }
 
 
       void test(){
         for (auto & step_name : StepSequence_){
           auto step_it = StepMap_.find(step_name);
-          if (step_it == StepMap_.end()){
-            RCLCPP_ERROR(this->get_logger(), "Pose not found, skipping to next");
-            continue;
-          }
+          // if (step_it == StepMap_.end()){
+          //   RCLCPP_ERROR(this->get_logger(), "Pose not found, skipping to next");
+          //   continue;
+          // }
 
           RCLCPP_INFO_STREAM(this->get_logger(), "====STEP PLANNED TO: " << step_it->first << "==========");
 
@@ -153,12 +200,11 @@ namespace ik_tests
 
           }
 
-          if (step_it->first == "BOX"){
-            continue;
-            
+          else if (step_it->first == "BOX"){
+            boxDemo(*arm_move_group_);
           }
 
-          if (step_it->first == "EIGHT"){
+          else if (step_it->first == "EIGHT"){
             continue;
             
           }
@@ -181,7 +227,7 @@ namespace ik_tests
             double x, y, z;
             tf2::Matrix3x3(q_curr).getRPY(x,y,z);
 
-            RCLCPP_INFO_STREAM(this->get_logger(), "CURRENT ORIENTATION (RPY): " << x << ", " << y << ", " << z);
+            RCLCPP_INFO_STREAM(this->get_logger(), "CURRENT ORIENTATION (RPY): " << x*180/M_PI << ", " << y*180/M_PI << ", " << z*180/M_PI);
           }
 
           //Change over to get_if eventually

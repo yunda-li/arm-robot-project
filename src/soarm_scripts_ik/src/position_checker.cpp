@@ -85,13 +85,13 @@ int main(int argc, char * argv[])
 
     planAndExecute(move_group_interface, logger);
 
-    move_group_interface.setPositionTarget(.081, .233, .227, "gripper");
+    move_group_interface.setPositionTarget(.066, .186, .262, "gripper");
 
     planAndExecute(move_group_interface, logger);
 
-    move_group_interface.setPositionTarget(.206, -.206, .146, "gripper");
+    // move_group_interface.setPositionTarget(.206, -.206, .146, "gripper");
 
-    planAndExecute(move_group_interface, logger);
+    // planAndExecute(move_group_interface, logger);
 
 
     rclcpp::sleep_for(std::chrono::milliseconds(200));

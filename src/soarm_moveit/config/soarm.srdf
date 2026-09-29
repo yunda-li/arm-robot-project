@@ -34,6 +34,13 @@
         <joint name="wrist_flex" value="0.1"/>
         <joint name="wrist_roll" value="1.6"/>
     </group_state>
+    <group_state name="demo_home" group="arm_move_group">
+        <joint name="shoulder_pan" value="0"/>
+        <joint name="shoulder_lift" value=".47"/>
+        <joint name="elbow_flex" value="-.85"/>
+        <joint name="wrist_flex" value=".38"/>
+        <joint name="wrist_roll" value="1.6"/>
+    </group_state>
     <group_state name="open" group="gripper_move_group">
         <joint name="gripper_joint" value="1.7"/>
     </group_state>
