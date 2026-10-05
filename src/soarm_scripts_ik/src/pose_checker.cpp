@@ -195,7 +195,7 @@ int main(int argc, char * argv[])
   //   return msg;
   // }();  
 
-  planAndExecutePose(move_group_interface, logger, target_pose);
+  // planAndExecutePose(move_group_interface, logger, target_pose);
 
   //Relative motion, test orientation adjustment
   rclcpp::sleep_for(std::chrono::milliseconds(200)); // let CurrentStateMonitor catch up post-execute
@@ -216,17 +216,32 @@ int main(int argc, char * argv[])
   planAndExecuteJoints(move_group_interface, logger);
   RCLCPP_INFO(logger, "Wrist roll corrected");
 
+  //Do I need loosened orienation constraints for these small moves?
+  current_pose = move_group_interface.getCurrentPose();
+  RCLCPP_INFO(logger, "Pose frame: %s, planning frame: %s, ref frame: %s, eef: %s",
+      current_pose.header.frame_id.c_str(),
+      move_group_interface.getPlanningFrame().c_str(),
+      move_group_interface.getPoseReferenceFrame().c_str(),
+      move_group_interface.getEndEffectorLink().c_str()
+    );
+
   geometry_msgs::msg::Pose move_pose = current_pose.pose;
-  move_pose.position.z += 0.020;
-  // move_pose.position.y += 0.020;
+  move_pose.position.z += 0.050;
+  move_pose.position.y += 0.050;
 
   std::vector<geometry_msgs::msg::Pose> waypoints;
   waypoints.push_back(move_pose);
 
-  move_pose.position.x += 0.050;
+  move_pose.position.z -= 0.10;
   waypoints.push_back(move_pose);
 
-  move_pose.position.z += 0.050;
+  move_pose.position.y -= 0.10;
+  waypoints.push_back(move_pose);
+
+  move_pose.position.z += 0.10;
+  waypoints.push_back(move_pose);
+
+  move_pose.position.y += 0.10;
   waypoints.push_back(move_pose);
 
   //Orientation adjustment test, To do next

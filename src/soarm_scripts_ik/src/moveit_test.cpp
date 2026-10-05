@@ -29,6 +29,7 @@ namespace ik_tests
         arm_move_group_ = std::make_shared<MoveGroupInterface>(shared_from_this(), "arm_move_group");
         arm_move_group_->setPlanningTime(5.0);
         arm_move_group_->setNumPlanningAttempts(10);
+
         test();
       }
 
@@ -43,7 +44,7 @@ namespace ik_tests
         std::variant<Pose, std::vector<double>> target;
       };
       
-      //Some funky paths this way. Maybe a Pre Pre Pick step? Or make PrePick a Joint Value Target
+      //Some funky paths this way. Maybe a Pre Pre Pick step? Or make PrePick a Joint Value Target, maybe remove the middle HOME
       const std::unordered_map<std::string, ArmTarget> StepMap_ = 
       {
         {"HOME" ,     {TargetType::targetJoints, std::vector<double>{0, 27*RAD_CONV, -49*RAD_CONV, 22*RAD_CONV, 92*RAD_CONV}}},
@@ -56,15 +57,20 @@ namespace ik_tests
 
       const std::vector<std::string> StepSequence_ =
       {
-        "HOME",
-        "PRE-PICK",
-        "PICK",
-        "NEAR-HOME",
-        "HOME",
-        "BOX",
+        // "HOME",
+        // "PRE-PICK",
+        // "PICK",
+        // "PRE-PICK",
+        // "NEAR-HOME",
+        // "HOME",
+        // "BOX",
+        // "HOME",
         "EIGHT",
-        "PRE-PLACE",
-        "PLACE"
+        // "PRE-PLACE",
+        // "PLACE",
+        // "PRE-PLACE",
+        // "NEAR-HOME",
+        // "HOME"
       };
 
       //Orientation in RViz is XYZW
@@ -82,7 +88,7 @@ namespace ik_tests
         return msg;
       }
 
-      bool planAndExecutePose(MoveGroupInterface &move_group_interface, const Pose &target_pose){
+      bool planAndExecutePose(const Pose &target_pose){
 
         tf2::Quaternion q(
           target_pose.orientation.x,
@@ -100,24 +106,24 @@ namespace ik_tests
         //Orientation relaxing, test with setTargetPose() and setTargetPosition()
         moveit_msgs::msg::OrientationConstraint ocm;
         ocm.link_name = "gripper";
-        ocm.header.frame_id = move_group_interface.getPlanningFrame();
+        ocm.header.frame_id = arm_move_group_->getPlanningFrame();
         ocm.orientation = target_pose.orientation;
 
         ocm.absolute_x_axis_tolerance = 90*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned, but with correction can be loose
-        ocm.absolute_y_axis_tolerance = 45*RAD_CONV;
+        ocm.absolute_y_axis_tolerance = 30*RAD_CONV;
         ocm.absolute_z_axis_tolerance = 180*RAD_CONV;
         ocm.weight = 1.0;
         
         moveit_msgs::msg::Constraints constraints;
         constraints.orientation_constraints.push_back(ocm);
-        move_group_interface.setPathConstraints(constraints);
+        arm_move_group_->setPathConstraints(constraints);
 
-        move_group_interface.setPositionTarget(target_pose.position.x, target_pose.position.y, target_pose.position.z, "gripper");
+        arm_move_group_->setPositionTarget(target_pose.position.x, target_pose.position.y, target_pose.position.z, "gripper");
         MoveGroupInterface::Plan plan;
-        bool ok = static_cast<bool>(move_group_interface.plan(plan));
+        bool ok = static_cast<bool>(arm_move_group_->plan(plan));
 
         if (ok){
-          move_group_interface.execute(plan);
+          arm_move_group_->execute(plan);
           return true;
         }
         else{
@@ -126,60 +132,183 @@ namespace ik_tests
         }
       }
 
-      void planAndExecuteJoints(MoveGroupInterface &move_group_interface, const std::vector<double> joint_values){
-        move_group_interface.setJointValueTarget(joint_values);
+      void planAndExecuteJoints(const std::vector<double> joint_values){
+        arm_move_group_->setJointValueTarget(joint_values);
 
-        auto const [success, plan] = [&move_group_interface](){
+        auto const [success, plan] = [this](){
         MoveGroupInterface::Plan msg;
-        auto const ok = static_cast<bool>(move_group_interface.plan(msg));
+        auto const ok = static_cast<bool>(arm_move_group_->plan(msg));
         return std::make_pair(ok, msg);
         }();
 
         if (success){
-            move_group_interface.execute(plan);
+            arm_move_group_->execute(plan);
         } else {
             RCLCPP_ERROR(this->get_logger(), "POSITION Planning Failed");
         }
       }
       
-      void fixWristRoll(MoveGroupInterface &move_group_interface, double orientation){
+      void fixWristRoll(double angle){
+        std::vector<double> joint_group_positions;
+        const moveit::core::JointModelGroup *joint_model_group = arm_move_group_->getCurrentState()->getJointModelGroup("arm_move_group");
+        arm_move_group_->getCurrentState()->copyJointGroupPositions(joint_model_group, joint_group_positions);
 
+        int wrist_roll_joint_index = 4;
+        //Horizontal flat is 93 or -87, Vertical is 0
+        joint_group_positions[wrist_roll_joint_index] = angle*RAD_CONV;
+
+        planAndExecuteJoints(joint_group_positions);
+        RCLCPP_INFO(this->get_logger(), "Wrist roll corrected");
 
       }
 
-      void boxDemo(MoveGroupInterface &move_group_interface){
-        auto current_pose = move_group_interface.getCurrentPose();
+      void boxDemo(){
+        //Move to helper function=========== maybe only needs to be at the beginning?
+        moveit::core::RobotStatePtr real_current_state;
+        std::vector<double> joint_values;
+        bool got_real_state = false;
+
+        for (int attempt = 0; attempt < 50; ++attempt) {  // up to ~5 seconds
+          real_current_state = arm_move_group_->getCurrentState();
+          const moveit::core::JointModelGroup* jmg_check =
+              real_current_state->getJointModelGroup("arm_move_group");
+          real_current_state->copyJointGroupPositions(jmg_check, joint_values);
+
+          // Heuristic: real state is very unlikely to be EXACTLY all zero
+          bool all_zero = true;
+          for (double v : joint_values) {
+            if (std::abs(v) > 1e-6){ 
+              all_zero = false; 
+              break; 
+            }
+          }
+          if (!all_zero) {
+            got_real_state = true;
+            break;
+          }
+          rclcpp::sleep_for(std::chrono::milliseconds(100));
+        }
+
+        if (!got_real_state) {
+          RCLCPP_WARN(this->get_logger(), "Current state still reads all-zero after waiting — may be genuine, or monitor issue persists.");
+        }
+
+        for (size_t i = 0; i < joint_values.size(); ++i) {
+          RCLCPP_INFO(this->get_logger(), "Joint %zu: %f", i, joint_values[i]);
+        }
+        //===============
+
+        auto current_pose = arm_move_group_->getCurrentPose();
+
+        RCLCPP_INFO(get_logger(), "Start xyz: %.3f %.3f %.3f",
+            current_pose.pose.position.x, current_pose.pose.position.y, current_pose.pose.position.z);
+
         geometry_msgs::msg::Pose base_pose = current_pose.pose;
         RCLCPP_INFO(this->get_logger(), "Planning Box Demo");
-
-        base_pose.position.z += 0.100;
-        base_pose.position.y += 0.100;
-
         std::vector<geometry_msgs::msg::Pose> waypoints;
+
+        //Diagonal which way? Also, why does this go down when the gripper is high, but up when gripper is low?
+        base_pose.position.z += 0.050;
+        base_pose.position.y += 0.050;
         waypoints.push_back(base_pose);
 
-        // base_pose.position.x += 0.050;
-        // waypoints.push_back(base_pose);
+        base_pose.position.z -= 0.10;
+        waypoints.push_back(base_pose);
 
-        // base_pose.position.z += 0.050;
-        // waypoints.push_back(base_pose);
+        base_pose.position.y -= 0.10;
+        waypoints.push_back(base_pose);
+
+        base_pose.position.z += 0.10;
+        waypoints.push_back(base_pose);
+
+        base_pose.position.y += 0.10;
+        waypoints.push_back(base_pose);
+
+        base_pose.position.z -= 0.050;
+        base_pose.position.y -= 0.050;
+        waypoints.push_back(base_pose);
+
         moveit_msgs::msg::RobotTrajectory trajectory;
         const double jump_threshold = 0.0;
         const double eef_step = 0.001;
-        double fraction = move_group_interface.computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
+        double fraction = arm_move_group_->computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
         
         RCLCPP_INFO(this->get_logger(), "Cartesian path fraction: %f, waypoints in traj: %zu",
             fraction, trajectory.joint_trajectory.points.size());
 
         if (fraction > 0.95 && !trajectory.joint_trajectory.points.empty()) {
-            move_group_interface.execute(trajectory);
+            arm_move_group_->execute(trajectory);
         } else {
             RCLCPP_ERROR(this->get_logger(), "Cartesian path failed or incomplete (fraction=%.2f) — not executing.", fraction);
         }
 
       }
 
-      void eightDemo(MoveGroupInterface &move_group_interface){
+      void eightDemo(){
+        //Move to helper function=====
+        moveit::core::RobotStatePtr real_current_state;
+        std::vector<double> joint_values;
+        bool got_real_state = false;
+
+        for (int attempt = 0; attempt < 50; ++attempt) {
+          real_current_state = arm_move_group_->getCurrentState();
+          const moveit::core::JointModelGroup* jmg_check =
+              real_current_state->getJointModelGroup("arm_move_group");
+          real_current_state->copyJointGroupPositions(jmg_check, joint_values);
+
+          // Heuristic: real state is very unlikely to be EXACTLY all zero
+          bool all_zero = true;
+          for (double v : joint_values) {
+            if (std::abs(v) > 1e-6){ 
+              all_zero = false; 
+              break; 
+            }
+          }
+          if (!all_zero) {
+            got_real_state = true;
+            break;
+          }
+          rclcpp::sleep_for(std::chrono::milliseconds(100));
+        }
+
+        if (!got_real_state) {
+          RCLCPP_WARN(this->get_logger(), "Current state still reads all-zero after waiting — may be genuine, or monitor issue persists.");
+        }
+
+        for (size_t i = 0; i < joint_values.size(); ++i) {
+          RCLCPP_INFO(this->get_logger(), "Joint %zu: %f", i, joint_values[i]);
+        }
+        //===============
+
+        const auto start_pose = arm_move_group_->getCurrentPose().pose;
+        const double r = 0.05;
+        const int steps = 36;
+        const double y_center = start_pose.position.y;
+        const double z_center = start_pose.position.z + r;
+        std::vector<Pose> waypoints;
+
+        for (size_t i = 0; i <= steps; ++i){
+          double theta = 2.0 * M_PI * i / steps;
+          //Might need to double check diretcions, but Z is vertical (Y) and Y is lateral (X)
+          Pose pose = start_pose;
+          pose.position.y = y_center + r * std::sin(theta);
+          pose.position.z = z_center + r * std::cos(theta);
+          waypoints.push_back(pose);
+        }
+
+        moveit_msgs::msg::RobotTrajectory trajectory;
+        const double jump_threshold = 0.0;
+        const double eef_step = 0.001;
+        double fraction = arm_move_group_->computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
+        
+        RCLCPP_INFO(this->get_logger(), "Cartesian path fraction: %f, waypoints in traj: %zu",
+            fraction, trajectory.joint_trajectory.points.size());
+
+        if (fraction > 0.95 && !trajectory.joint_trajectory.points.empty()) {
+            arm_move_group_->execute(trajectory);
+        } else {
+            RCLCPP_ERROR(this->get_logger(), "Cartesian path failed or incomplete (fraction=%.2f) — not executing.", fraction);
+        }
 
 
       }
@@ -187,6 +316,16 @@ namespace ik_tests
 
       void test(){
         for (auto & step_name : StepSequence_){
+          if (step_name == "BOX"){
+            boxDemo();
+            continue;
+          }
+
+          if (step_name == "EIGHT"){
+            eightDemo();
+            continue;
+          }
+      
           auto step_it = StepMap_.find(step_name);
           // if (step_it == StepMap_.end()){
           //   RCLCPP_ERROR(this->get_logger(), "Pose not found, skipping to next");
@@ -200,18 +339,10 @@ namespace ik_tests
 
           }
 
-          else if (step_it->first == "BOX"){
-            boxDemo(*arm_move_group_);
-          }
-
-          else if (step_it->first == "EIGHT"){
-            continue;
-            
-          }
           //Change over to get_if eventually
           else if (step_it->second.type == TargetType::targetPose){
             const auto& created_pose = std::get<Pose>(step_it->second.target);
-            planAndExecutePose(*arm_move_group_, created_pose);
+            planAndExecutePose(created_pose);
 
             auto current_pose = arm_move_group_->getCurrentPose();
             RCLCPP_INFO_STREAM(this->get_logger(), "CURRENT POSITION: " << current_pose.pose.position.x << ", " 
@@ -234,7 +365,7 @@ namespace ik_tests
           else if (step_it->second.type == TargetType::targetJoints){
             auto &joints = std::get<std::vector<double>>(step_it->second.target);
 
-            planAndExecuteJoints(*arm_move_group_, joints);
+            planAndExecuteJoints(joints);
           }
 
           else{
