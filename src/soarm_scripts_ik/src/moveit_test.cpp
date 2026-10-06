@@ -47,30 +47,30 @@ namespace ik_tests
       //Some funky paths this way. Maybe a Pre Pre Pick step? Or make PrePick a Joint Value Target, maybe remove the middle HOME
       const std::unordered_map<std::string, ArmTarget> StepMap_ = 
       {
-        {"HOME" ,     {TargetType::targetJoints, std::vector<double>{0, 27*RAD_CONV, -49*RAD_CONV, 22*RAD_CONV, 92*RAD_CONV}}},
-        {"NEAR-HOME", {TargetType::targetPose, createArmPose(.174, .022, .253, -.498, -.508, .492, .502)}},
-        {"PRE-PICK",  {TargetType::targetJoints, std::vector<double>{-69*RAD_CONV, 63*RAD_CONV, -73*RAD_CONV, 39*RAD_CONV, 102*RAD_CONV}}},
-        {"PICK",      {TargetType::targetPose, createArmPose(.077, .220, .137, -.012, -.066, .996, .066)}},
-        {"PRE-PLACE", {TargetType::targetJoints, std::vector<double>{58*RAD_CONV, 73*RAD_CONV, -86*RAD_CONV, 65*RAD_CONV, 100*RAD_CONV}}},
-        {"PLACE",     {TargetType::targetPose, createArmPose(.215, -.224, .055, -.688, -.189, .207, .669)}}
+        {"HOME" ,       {TargetType::targetJoints, std::vector<double>{0, 27*RAD_CONV, -49*RAD_CONV, 22*RAD_CONV, 92*RAD_CONV}}},
+        {"PICK-HOME",   {TargetType::targetJoints, std::vector<double>{-35*RAD_CONV, 63*RAD_CONV, -73*RAD_CONV, 39*RAD_CONV, 102*RAD_CONV}}},
+        {"PRE-PICK",    {TargetType::targetJoints, std::vector<double>{-70*RAD_CONV, 63*RAD_CONV, -73*RAD_CONV, 39*RAD_CONV, 102*RAD_CONV}}},
+        {"PICK",        {TargetType::targetPose, createArmPose(.209, .235, .048, -.272, -.583, .742, .188)}},
+        {"PRE-PLACE",   {TargetType::targetJoints, std::vector<double>{70*RAD_CONV, 63*RAD_CONV, -73*RAD_CONV, 39*RAD_CONV, 102*RAD_CONV}}},
+        {"PLACE",       {TargetType::targetPose, createArmPose(.215, -.224, .055, -.688, -.189, .207, .669)}},
+        {"PLACE-HOME",  {TargetType::targetJoints, std::vector<double>{35*RAD_CONV, 63*RAD_CONV, -73*RAD_CONV, 39*RAD_CONV, 102*RAD_CONV}}}
       };
 
       const std::vector<std::string> StepSequence_ =
       {
-        // "HOME",
-        // "PRE-PICK",
-        // "PICK",
-        // "PRE-PICK",
-        // "NEAR-HOME",
-        // "HOME",
-        // "BOX",
-        // "HOME",
+        "HOME",
+        "PRE-PICK",
+        "PICK",
+        "PRE-PICK",
+        "PICK-HOME",
+        "HOME",
+        "BOX",
         "EIGHT",
-        // "PRE-PLACE",
-        // "PLACE",
-        // "PRE-PLACE",
-        // "NEAR-HOME",
-        // "HOME"
+        "PRE-PLACE",
+        "PLACE",
+        "PRE-PLACE",
+        "PLACE-HOME",
+        "HOME"
       };
 
       //Orientation in RViz is XYZW
@@ -109,7 +109,7 @@ namespace ik_tests
         ocm.header.frame_id = arm_move_group_->getPlanningFrame();
         ocm.orientation = target_pose.orientation;
 
-        ocm.absolute_x_axis_tolerance = 90*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned, but with correction can be loose
+        ocm.absolute_x_axis_tolerance = 180*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned, but with correction can be loose
         ocm.absolute_y_axis_tolerance = 30*RAD_CONV;
         ocm.absolute_z_axis_tolerance = 180*RAD_CONV;
         ocm.weight = 1.0;
@@ -124,10 +124,14 @@ namespace ik_tests
 
         if (ok){
           arm_move_group_->execute(plan);
+          arm_move_group_->clearPathConstraints();
+          arm_move_group_->clearPoseTargets(); 
           return true;
         }
         else{
           RCLCPP_WARN(this->get_logger(), "Restrained Position Target Failed");
+          arm_move_group_->clearPathConstraints();
+          arm_move_group_->clearPoseTargets(); 
           return false;
         }
       }
@@ -149,6 +153,41 @@ namespace ik_tests
       }
       
       void fixWristRoll(double angle){
+        //Move to helper function=========== maybe only needs to be at the beginning?
+        moveit::core::RobotStatePtr real_current_state;
+        std::vector<double> joint_values;
+        bool got_real_state = false;
+
+        for (int attempt = 0; attempt < 50; ++attempt) {  // up to ~5 seconds
+          real_current_state = arm_move_group_->getCurrentState();
+          const moveit::core::JointModelGroup* jmg_check =
+              real_current_state->getJointModelGroup("arm_move_group");
+          real_current_state->copyJointGroupPositions(jmg_check, joint_values);
+
+          // Heuristic: real state is very unlikely to be EXACTLY all zero
+          bool all_zero = true;
+          for (double v : joint_values) {
+            if (std::abs(v) > 1e-6){ 
+              all_zero = false; 
+              break; 
+            }
+          }
+          if (!all_zero) {
+            got_real_state = true;
+            break;
+          }
+          rclcpp::sleep_for(std::chrono::milliseconds(100));
+        }
+
+        if (!got_real_state) {
+          RCLCPP_WARN(this->get_logger(), "Current state still reads all-zero after waiting — may be genuine, or monitor issue persists.");
+        }
+
+        for (size_t i = 0; i < joint_values.size(); ++i) {
+          RCLCPP_INFO(this->get_logger(), "Joint %zu: %f", i, joint_values[i]);
+        }
+        //===============
+
         std::vector<double> joint_group_positions;
         const moveit::core::JointModelGroup *joint_model_group = arm_move_group_->getCurrentState()->getJointModelGroup("arm_move_group");
         arm_move_group_->getCurrentState()->copyJointGroupPositions(joint_model_group, joint_group_positions);
@@ -280,19 +319,34 @@ namespace ik_tests
         }
         //===============
 
+        RCLCPP_INFO(this->get_logger(), "Planning Figure 8 Demo");
+
         const auto start_pose = arm_move_group_->getCurrentPose().pose;
         const double r = 0.05;
-        const int steps = 36;
-        const double y_center = start_pose.position.y;
-        const double z_center = start_pose.position.z + r;
+        const int steps = 50;
+        const double yc = start_pose.position.y;
+        const double zc = start_pose.position.z + r;
         std::vector<Pose> waypoints;
+
 
         for (size_t i = 0; i <= steps; ++i){
           double theta = 2.0 * M_PI * i / steps;
-          //Might need to double check diretcions, but Z is vertical (Y) and Y is lateral (X)
+          //Remember Z is vertical and Y is lateral
+          Pose pose = start_pose; 
+          //Changes direction of movement, currently CW looking from back to front
+          pose.position.y = yc + r * std::sin(theta);
+          //Changes initial position of circle
+          pose.position.z = zc - r * std::cos(theta);
+          waypoints.push_back(pose);
+        }
+
+        const double zc_low = start_pose.position.z - r;
+
+        for (size_t i = 0; i <= steps; ++i){
+          double theta = 2.0 * M_PI * i / steps;
           Pose pose = start_pose;
-          pose.position.y = y_center + r * std::sin(theta);
-          pose.position.z = z_center + r * std::cos(theta);
+          pose.position.y = yc + r * std::sin(theta);
+          pose.position.z = zc_low + r * std::cos(theta);
           waypoints.push_back(pose);
         }
 
@@ -329,20 +383,15 @@ namespace ik_tests
           auto step_it = StepMap_.find(step_name);
           // if (step_it == StepMap_.end()){
           //   RCLCPP_ERROR(this->get_logger(), "Pose not found, skipping to next");
-          //   continue;
           // }
 
-          RCLCPP_INFO_STREAM(this->get_logger(), "====STEP PLANNED TO: " << step_it->first << "==========");
-
-          if (step_it->first == "CUSTOM"){
-            continue;
-
-          }
+          RCLCPP_INFO_STREAM(this->get_logger(), "=======STEP PLANNED TO: " << step_it->first << "==========");
 
           //Change over to get_if eventually
-          else if (step_it->second.type == TargetType::targetPose){
+          if (step_it->second.type == TargetType::targetPose){
             const auto& created_pose = std::get<Pose>(step_it->second.target);
             planAndExecutePose(created_pose);
+            fixWristRoll(93.0);
 
             auto current_pose = arm_move_group_->getCurrentPose();
             RCLCPP_INFO_STREAM(this->get_logger(), "CURRENT POSITION: " << current_pose.pose.position.x << ", " 
