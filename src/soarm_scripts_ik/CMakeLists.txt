@@ -29,6 +29,14 @@ ament_target_dependencies(moveit_test
   geometry_msgs
   )
 
+add_executable(servo_test src/servo_test.cpp)
+ament_target_dependencies(servo_test 
+  rclcpp 
+  moveit_ros_planning_interface
+  moveit_ros_planning
+  geometry_msgs
+  )
+
 add_executable(pose_checker src/pose_checker.cpp)
 ament_target_dependencies(pose_checker 
   rclcpp 
@@ -53,6 +61,13 @@ install(TARGETS
   moveit_test
   DESTINATION lib/${PROJECT_NAME}
 )
+
+install(TARGETS
+  servo_test
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
 
 install(TARGETS
   pose_checker
