@@ -36,7 +36,7 @@
                     <param name="initial_position">0</param>
                     <param name="id">12</param>
                     <param name="p_cofficient">32</param>
-                    <param name="offset">0</param>
+                    <param name="offset">1500</param>
                 </xacro:unless>
                 <!--Send commands to hardware-->
                 <command_interface name="position">

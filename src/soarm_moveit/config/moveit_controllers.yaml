@@ -18,8 +18,16 @@ moveit_simple_controller_manager:
     action_ns: follow_joint_trajectory
     default: true
   gripper_controller:
-    type: GripperCommand
+    type: FollowJointTrajectory
     joints:
       - gripper_joint
-    action_ns: gripper_cmd
+    action_ns: follow_joint_trajectory
     default: true
+
+
+    # May come back if want max effort / stall control
+    # type: GripperCommand
+    # joints:
+    #   - gripper_joint
+    # action_ns: gripper_cmd
+    # default: true

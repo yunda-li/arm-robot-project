@@ -10,7 +10,7 @@
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
 
-#define RAD_CONV .017453
+#define DEG_TO_RAD .017453
 using moveit::planning_interface::MoveGroupInterface;
 
 

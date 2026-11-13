@@ -3,7 +3,7 @@
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <geometry_msgs/msg/pose.hpp>
 
-#define RAD_CONV 0.017453
+#define DEG_TO_RAD 0.017453
 
 using moveit::planning_interface::MoveGroupInterface;
 
@@ -16,12 +16,14 @@ class CalibrateServos : public rclcpp::Node{
     //Lifecycle states to check current joint state?
     void init(){
         arm_move_group_ = std::make_shared<MoveGroupInterface>(shared_from_this(), "arm_move_group");
+        gripper_move_group_ = std::make_shared<MoveGroupInterface>(shared_from_this(), "gripper_move_group");
+
         test();
     }
 
     private:
         std::shared_ptr<MoveGroupInterface> arm_move_group_;
-
+        std::shared_ptr<MoveGroupInterface> gripper_move_group_;
 
         void planJointTarget(const std::vector<double> joint_values){
             arm_move_group_->setJointValueTarget(joint_values);
@@ -75,6 +77,14 @@ class CalibrateServos : public rclcpp::Node{
             RCLCPP_INFO(this->get_logger(), "Joint %zu: %f", i, joint_values[i]);
             }
 
+            std::vector<double> gripper_value;
+            moveit::core::RobotStatePtr gripper_current_state = gripper_move_group_->getCurrentState();
+            const moveit::core::JointModelGroup* gripper_check =
+                gripper_current_state->getJointModelGroup("gripper_move_group");
+            gripper_current_state->copyJointGroupPositions(gripper_check, gripper_value);            
+
+            RCLCPP_INFO_STREAM(this->get_logger(), "Current Gripper Angle: " << gripper_value[0] << ", Gripper Step: " << gripper_value[0] / DEG_TO_RAD);
+
             return joint_values;
 
         }
@@ -109,16 +119,6 @@ class CalibrateServos : public rclcpp::Node{
 
             }
 
-            // std::vector<double> joint_group_positions;
-            // const moveit::core::JointModelGroup *jmg = arm_move_group_->getCurrentState()->getJointModelGroup("arm_move_group");
-            // arm_move_group_->getCurrentState()->copyJointGroupPositions(jmg, joint_group_positions);
-
-            // for (size_t i = 0; i < joint_group_positions.size(); ++i){
-            //     joint_group_positions[i] = 0;
-            //     planJointTarget(joint_group_positions);
-            //     rclcpp::sleep_for(std::chrono::milliseconds(2000));
-
-            // }
         }
 
 };
