@@ -36,7 +36,7 @@
                     <param name="initial_position">0</param>
                     <param name="id">12</param>
                     <param name="p_cofficient">32</param>
-                    <!-- <param name="offset">0</param> -->
+                    <param name="offset">1500</param>
                 </xacro:unless>
                 <!--Send commands to hardware-->
                 <command_interface name="position">
@@ -60,7 +60,7 @@
                     <param name="initial_position">0</param>
                     <param name="id">11</param>
                     <param name="p_cofficient">32</param>
-                    <!-- <param name="offset">0</param> -->
+                    <param name="offset">2320</param>
                 </xacro:unless>
                 <command_interface name="position">
                     <xacro:if value="${is_sim_prop}">
@@ -82,7 +82,7 @@
                     <param name="initial_position">0</param>
                     <param name="id">10</param>
                     <param name="p_cofficient">32</param>
-                    <!-- <param name="offset">0</param> -->
+                    <param name="offset">2160</param>
                 </xacro:unless>
                 <command_interface name="position">
                     <xacro:if value="${is_sim_prop}">
@@ -104,7 +104,7 @@
                     <param name="initial_position">0</param>
                     <param name="id">9</param>
                     <param name="p_cofficient">32</param>
-                    <!-- <param name="offset">0</param> -->
+                    <param name="offset">2670</param>
                 </xacro:unless>
                 <command_interface name="position">
                     <xacro:if value="${is_sim_prop}">
@@ -126,7 +126,7 @@
                     <param name="initial_position">0</param>
                     <param name="id">8</param>
                     <param name="p_cofficient">32</param>
-                    <!-- <param name="offset">0</param> -->
+                    <param name="offset">1160</param>
                 </xacro:unless>
                 <command_interface name="position">
                     <xacro:if value="${is_sim_prop}">
@@ -148,7 +148,7 @@
                     <param name="initial_position">0</param>
                     <param name="id">7</param>
                     <param name="p_cofficient">32</param>
-                    <!-- <param name="offset">0</param> -->
+                    <param name="offset">2450</param>
                 </xacro:unless>
                 <command_interface name="position">
                     <xacro:if value="${is_sim_prop}">

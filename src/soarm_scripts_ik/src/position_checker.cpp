@@ -10,7 +10,7 @@
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
 
-#define RAD_CONV .017453
+#define DEG_TO_RAD .017453
 using moveit::planning_interface::MoveGroupInterface;
 
 
@@ -82,16 +82,13 @@ int main(int argc, char * argv[])
     rclcpp::sleep_for(std::chrono::milliseconds(1000));
 
     move_group_interface.setPositionTarget(.104, .022, .227, "gripper");
-
     planAndExecute(move_group_interface, logger);
 
     move_group_interface.setPositionTarget(.066, .186, .262, "gripper");
-
     planAndExecute(move_group_interface, logger);
 
-    // move_group_interface.setPositionTarget(.206, -.206, .146, "gripper");
-
-    // planAndExecute(move_group_interface, logger);
+    move_group_interface.setPositionTarget(.206, -.206, .146, "gripper");
+    planAndExecute(move_group_interface, logger);
 
 
     rclcpp::sleep_for(std::chrono::milliseconds(200));

@@ -41,6 +41,20 @@
         <joint name="wrist_flex" value=".38"/>
         <joint name="wrist_roll" value="1.6"/>
     </group_state>
+    <group_state name="PRE-PICK" group="arm_move_group">
+        <joint name="shoulder_pan" value="-1.22"/>
+        <joint name="shoulder_lift" value="1.10"/>
+        <joint name="elbow_flex" value="-1.27"/>
+        <joint name="wrist_flex" value=".68"/>
+        <joint name="wrist_roll" value="1.78"/>
+    </group_state>
+    <group_state name="PRE-PLACE" group="arm_move_group">
+        <joint name="shoulder_pan" value="1.22"/>
+        <joint name="shoulder_lift" value="1.10"/>
+        <joint name="elbow_flex" value="-1.27"/>
+        <joint name="wrist_flex" value=".68"/>
+        <joint name="wrist_roll" value="1.78"/>
+    </group_state>
     <group_state name="open" group="gripper_move_group">
         <joint name="gripper_joint" value="1.7"/>
     </group_state>

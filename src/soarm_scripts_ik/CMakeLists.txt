@@ -17,6 +17,8 @@ find_package(tf2_eigen REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(shape_msgs REQUIRED)
+
 
 add_executable(moveit_test src/moveit_test.cpp)
 ament_target_dependencies(moveit_test 
@@ -26,6 +28,15 @@ ament_target_dependencies(moveit_test
   tf2
   tf2_ros
   tf2_geometry_msgs
+  geometry_msgs
+  shape_msgs
+  )
+
+add_executable(servo_test src/servo_test.cpp)
+ament_target_dependencies(servo_test 
+  rclcpp 
+  moveit_ros_planning_interface
+  moveit_ros_planning
   geometry_msgs
   )
 
@@ -53,6 +64,13 @@ install(TARGETS
   moveit_test
   DESTINATION lib/${PROJECT_NAME}
 )
+
+install(TARGETS
+  servo_test
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+
 
 install(TARGETS
   pose_checker

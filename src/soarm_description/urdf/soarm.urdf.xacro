@@ -287,7 +287,8 @@
       <limit effort="10" velocity="10" lower="-0.174533" upper="1.74533"/>
     </xacro:if>
     <xacro:unless value="$(arg is_sim)">
-      <limit effort="10" velocity="10" lower="${1300*RAD_CONV}" upper="${2800*RAD_CONV}"/>
+      <limit effort="10" velocity="10" lower="-0.174533" upper="1.74533"/>
+      <!-- <limit effort="10" velocity="10" lower="${1300*RAD_CONV}" upper="${2800*RAD_CONV}"/> -->
     </xacro:unless>
     </joint>
   <!-- Joint from wrist to gripper -->
@@ -301,7 +302,8 @@
       <limit effort="10" velocity="10" lower="${-7*PI/8}" upper="${7*PI/8}"/>
     </xacro:if>
     <xacro:unless value="$(arg is_sim)">
-      <limit effort="10" velocity="10" lower="${430*RAD_CONV}" upper="${4070*RAD_CONV}"/>
+      <limit effort="10" velocity="10" lower="${-7*PI/8}" upper="${7*PI/8}"/>
+      <!-- <limit effort="10" velocity="10" lower="${430*RAD_CONV}" upper="${4070*RAD_CONV}"/> -->
     </xacro:unless>
     </joint>
   <!-- Joint from lower_arm to wrist -->
@@ -315,7 +317,8 @@
       <limit effort="10" velocity="10" lower="-1.2" upper="1.2"/>
     </xacro:if>
     <xacro:unless value="$(arg is_sim)">
-      <limit effort="10" velocity="10" lower="${1200*RAD_CONV}" upper="${3200*RAD_CONV}"/>
+      <limit effort="10" velocity="10" lower="-1.2" upper="1.2"/>
+      <!-- <limit effort="10" velocity="10" lower="${1200*RAD_CONV}" upper="${3200*RAD_CONV}"/> -->
     </xacro:unless>
   </joint>
   <!-- Joint from upper_arm to lower_arm -->
@@ -329,7 +332,8 @@
       <limit effort="10" velocity="10" lower="${-PI}" upper="0"/>
     </xacro:if>
     <xacro:unless value="$(arg is_sim)">
-      <limit effort="10" velocity="10" lower="${500*RAD_CONV}" upper="${2600*RAD_CONV}"/>
+      <limit effort="10" velocity="10" lower="${-PI}" upper="0"/>
+      <!-- <limit effort="10" velocity="10" lower="${500*RAD_CONV}" upper="${2600*RAD_CONV}"/> -->
     </xacro:unless>
     </joint>
   <!-- Joint from shoulder to upper_arm -->
@@ -343,7 +347,8 @@
       <limit effort="10" velocity="10" lower="-0.3" upper="${PI}"/>
     </xacro:if>
     <xacro:unless value="$(arg is_sim)">
-      <limit effort="10" velocity="10" lower="${850*RAD_CONV}" upper="${3500*RAD_CONV}"/>
+      <limit effort="10" velocity="10" lower="-0.3" upper="${PI}"/>
+      <!-- <limit effort="10" velocity="10" lower="${850*RAD_CONV}" upper="${3500*RAD_CONV}"/> -->
     </xacro:unless>
     </joint>
   <!-- Joint from base to shoulder -->
@@ -357,7 +362,8 @@
       <limit effort="10" velocity="10" lower="${-3*PI/5}" upper="${3*PI/5}"/>
     </xacro:if>
     <xacro:unless value="$(arg is_sim)">
-      <limit effort="10" velocity="10" lower="${1130*RAD_CONV}" upper="${3730*RAD_CONV}"/>
+      <limit effort="10" velocity="10" lower="${-3*PI/5}" upper="${3*PI/5}"/>
+      <!-- <limit effort="10" velocity="10" lower="${1130*RAD_CONV}" upper="${3730*RAD_CONV}"/> -->
     </xacro:unless>
     </joint>
 </robot>

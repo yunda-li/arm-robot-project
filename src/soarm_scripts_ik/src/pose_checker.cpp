@@ -18,7 +18,7 @@
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
-#define RAD_CONV .017453
+#define DEG_TO_RAD .017453
 
 using moveit::planning_interface::MoveGroupInterface;
 using geometry_msgs::msg::Pose;
@@ -45,9 +45,9 @@ bool planAndExecutePose(MoveGroupInterface &move_group_interface, const rclcpp::
   ocm.orientation = target_pose.orientation;
 
   //Orientation deviation from given 
-  ocm.absolute_x_axis_tolerance = 180*RAD_CONV; //I think Roll might be the most important for keeping gripper aligned, but with correction can be loose
-  ocm.absolute_y_axis_tolerance = 60*RAD_CONV;
-  ocm.absolute_z_axis_tolerance = 180*RAD_CONV;
+  ocm.absolute_x_axis_tolerance = 180*DEG_TO_RAD; //I think Roll might be the most important for keeping gripper aligned, but with correction can be loose
+  ocm.absolute_y_axis_tolerance = 60*DEG_TO_RAD;
+  ocm.absolute_z_axis_tolerance = 180*DEG_TO_RAD;
   ocm.weight = 1.0;
   
   moveit_msgs::msg::Constraints constraints;
@@ -195,7 +195,7 @@ int main(int argc, char * argv[])
   //   return msg;
   // }();  
 
-  planAndExecutePose(move_group_interface, logger, target_pose);
+  // planAndExecutePose(move_group_interface, logger, target_pose);
 
   //Relative motion, test orientation adjustment
   rclcpp::sleep_for(std::chrono::milliseconds(200)); // let CurrentStateMonitor catch up post-execute
@@ -210,23 +210,38 @@ int main(int argc, char * argv[])
 
   int wrist_roll_joint_index = 4;
   //Horizontal flat is 93 or -87, Vertical is 0
-  joint_group_positions[wrist_roll_joint_index] = 93*RAD_CONV;
+  joint_group_positions[wrist_roll_joint_index] = 93*DEG_TO_RAD;
 
   move_group_interface.setJointValueTarget(joint_group_positions);
   planAndExecuteJoints(move_group_interface, logger);
   RCLCPP_INFO(logger, "Wrist roll corrected");
 
+  //Do I need loosened orienation constraints for these small moves?
+  current_pose = move_group_interface.getCurrentPose();
+  RCLCPP_INFO(logger, "Pose frame: %s, planning frame: %s, ref frame: %s, eef: %s",
+      current_pose.header.frame_id.c_str(),
+      move_group_interface.getPlanningFrame().c_str(),
+      move_group_interface.getPoseReferenceFrame().c_str(),
+      move_group_interface.getEndEffectorLink().c_str()
+    );
+
   geometry_msgs::msg::Pose move_pose = current_pose.pose;
-  move_pose.position.z += 0.020;
-  // move_pose.position.y += 0.020;
+  move_pose.position.z += 0.050;
+  move_pose.position.y += 0.050;
 
   std::vector<geometry_msgs::msg::Pose> waypoints;
   waypoints.push_back(move_pose);
 
-  move_pose.position.x += 0.050;
+  move_pose.position.z -= 0.10;
   waypoints.push_back(move_pose);
 
-  move_pose.position.z += 0.050;
+  move_pose.position.y -= 0.10;
+  waypoints.push_back(move_pose);
+
+  move_pose.position.z += 0.10;
+  waypoints.push_back(move_pose);
+
+  move_pose.position.y += 0.10;
   waypoints.push_back(move_pose);
 
   //Orientation adjustment test, To do next

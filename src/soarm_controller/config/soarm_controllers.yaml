@@ -1,13 +1,13 @@
 controller_manager:
   ros__parameters: #NEEDS 2 UNDERSCORES
-    qos_overrides:
-    /joint_states:
-      publisher:
-        durability: volatile
-        reliability: reliable
+    # qos_overrides:
+    # /joint_states:
+    #   publisher:
+    #     durability: volatile
+    #     reliability: reliable
 
 
-    update_rate: 500
+    update_rate: 100
     arm_controller:
       #Send trajectory commands to arm at any time, tontains list of points/coords
       type: joint_trajectory_controller/JointTrajectoryController
