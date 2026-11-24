@@ -15,7 +15,8 @@ jobs:
         run: |
           apt-get update
           rosdep update
-          rosdep install --from-paths src --ignore-src -y --skip-keys "warehouse_ros_mongo"
+          # Remove -r once orocos_kdl is sorted out in soarm_scripts
+          rosdep install --from-paths src --ignore-src -r -y --skip-keys "warehouse_ros_mongo"
       - name: Build
         shell: bash
         run: |
