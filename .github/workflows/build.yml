@@ -26,7 +26,9 @@ jobs:
         shell: bash
         run: |
           source /opt/ros/humble/setup.bash
-          colcon test-result --verbose
+          colcon build --event-handlers console_cohesion+ --cmake-args -DCMAKE_BUILD_TYPE=Release
+          colcon test --event-handlers console_direct+
+          colcon test-result --all --verbose
         
       
 
