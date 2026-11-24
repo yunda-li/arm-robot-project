@@ -1,4 +1,4 @@
-name: build ROS2 packages
+name: build and test ROS2 packages
 on:
   workflow_dispatch:
   push:
@@ -22,6 +22,11 @@ jobs:
         run: |
           source /opt/ros/humble/setup.bash
           colcon build --event-handlers console_cohesion+ --cmake-args -DCMAKE_BUILD_TYPE=Release
+      - name: Test
+        shell: bash
+        run: |
+          source /opt/ros/humble/setup.bash
+          colcon test-result --verbose
         
       
 
