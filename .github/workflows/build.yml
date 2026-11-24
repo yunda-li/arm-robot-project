@@ -15,8 +15,8 @@ jobs:
         run: |
           apt-get update
           rosdep update
-          # Remove -r once orocos_kdl is sorted out in soarm_scripts
           rosdep install --from-paths src --ignore-src -r -y --skip-keys "warehouse_ros_mongo"
+          apt-get install -y ros-humble-joint-trajectory-controller
       - name: Build
         shell: bash
         run: |
