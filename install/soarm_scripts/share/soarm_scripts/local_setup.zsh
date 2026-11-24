@@ -1,1 +1,0 @@
-/home/yundali/Arm_Project_WS/build/soarm_scripts/ament_cmake_environment_hooks/local_setup.zsh
