@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - gha-workflow
 jobs:
   build:
     runs-on: ubuntu-22.04
@@ -14,12 +15,12 @@ jobs:
         run: |
           apt-get update
           rosdep update
-          rosdep install --from-paths src --ignore-src -r -y
+          rosdep install --from-paths src --ignore-src -r -y --skip-keys "warehouse_ros_mongo"
       - name: Build
         shell: bash
         run: |
           source /opt/ros/humble/setup.bash
-          colcon build --event-handlers console_cohesion+ \ --cmake-args -DCMAKE_BUILD_TYPE=Release
+          colcon build --event-handlers console_cohesion+ --cmake-args -DCMAKE_BUILD_TYPE=Release
         
       
 
